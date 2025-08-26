@@ -1,18 +1,9 @@
-/*! Primeiro comentario */
-/*? Segundo comentario */
-/** Terceiro comentario */
-/* Quarto comentario */
-
-/*4B0082  D3D4D9 FF7F50 4B88A2 FFF9FB*/
-/*! Temas */
-
-/*? Tema Claro */
 body.light {
   --primary-purple: #ff7f50; /* botões e detalhes */
   --primary-orange: #6a0dad; /* detalhes suaves, mas não vibrantes */
   --dark-purple: #E8EBED; /* navbar clara */
   --light-orange: #4b0082; /* fundo principal, off-white sutil */
-  --gray-900: #f2f0f9; /*#d1d5db*/ /* fundo off-white */
+  --gray-900: #d1d5db; /* fundo off-white */
   --gray-800: #9ca3af; /* seções secundárias */
   --gray-700: #374151; /* links e textos secundários roxos */
   --gray-400: #1f2937; /* detalhes menores */
@@ -64,31 +55,40 @@ img {
 }
 
 .container {
-  width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
   padding-left: 1rem;
-  padding-right: 1rem; 
+  padding-right: 1rem;
 }
 
-.full-width-btn {
-  width: 100%;
-  padding: 0.6rem;
-  border-radius: 8px;
-  border: 0;
-  cursor: pointer;
-  color: #fff;
+/** ===== NAVBAR ===== */
+.navbar {
+  background: var(--dark-purple);
+  transition: background 0.4s;
+}
+.nav-logo,
+.link-cassino,
+.link-ongs {
+  color: var(--white);
+  transition: color 0.4s;
+}
+
+/* Botão primário */
+.btn-primary {
   background: linear-gradient(
     135deg,
     var(--primary-purple),
     var(--primary-orange)
   );
-  font-weight: 600;
+  color: var(--white);
 }
 
-/** BOTÕES */
+.btn-primary:hover {
+  transition: var(--transition-fast);
+  filter: brightness(1.1)
+}
 
-/* Botão primário */
+
 .btn-primary {
   background: linear-gradient(
     135deg,
@@ -104,62 +104,14 @@ img {
   cursor: pointer;
   box-shadow: 0 8px 20px rgba(2, 6, 23, 0.6);
 }
-.btn-primary:hover {
-  transition: var(--transition-fast);
-  filter: brightness(1.1)
-}
-
-/* Botão de largura total */
-.btn-full-width{
-  width: 100%;
-  padding: 0.6rem;
-  border-radius: 8px;
-  border: 0;
-  cursor: pointer;
-  color: #fff;
-  background: linear-gradient(
-    135deg,
-    var(--primary-purple),
-    var(--primary-orange)
-  );
-  font-weight: 600;
-}
-
-/* Botão com borda */
-.btn-outline {
-  background: transparent;
-  color: var(--white);
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  border: 1px solid var(--primary-orange);
-  cursor: pointer;
-  transition: background 200ms;
-}
-.btn-outline:hover {
-  background: rgba(255, 127, 80, 0.08);
-}
-
-
-
-/** ===== NAVBAR ===== */
-.navbar {
-  background: var(--dark-purple);
-  transition: background 0.4s;
-}
-.nav-logo,
-.link-cassino,
-.link-ongs {
-  color: var(--white);
-  transition: color 0.4s;
-}
 
 .navbar {
   background: var(--dark-purple);
-  /* border-bottom: 1px solid #111827; */
-  position: fixed;
-  width: 100%;
+  border-bottom: 1px solid #111827;
+  position: sticky;
+  top: 0;
   z-index: 60;
-  box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .nav-interno {
@@ -174,7 +126,6 @@ img {
   align-items: center;
   gap: 0.5rem;
 }
-
 /** Logo Doe e Ganhe */
 .nav-logo {
   color: var(--white);
@@ -209,7 +160,7 @@ img {
   gap: 0.5rem;
 }
 
-.nav-btn-icon {
+.btn-icon {
   background: transparent;
   border: 0;
   color: var(--gray-400);
@@ -217,18 +168,13 @@ img {
   border-radius: 9999px;
   cursor: pointer;
 }
-.nav-btn-icon:hover {
+.btn-icon:hover {
   color: #fff;
   /* transform: scale(1.05); */
   transition: var(--transition-fast);
 }
 
 /** Botão de alternância de tema*/
-.nav-botao-tema {
-  display: flex;
-  align-items: center;
-}
-
 .theme-toggle {
   position: relative;
   width: 50px;
@@ -288,7 +234,7 @@ body.light .sun {
 }
 
 /** Botão cadastrar e login*/
-.nav-btn-cadastrar {
+.btn-cadastrar {
   background: linear-gradient(
     135deg,
     var(--primary-purple),
@@ -303,7 +249,7 @@ body.light .sun {
   cursor: pointer;
   margin-left: 0.5rem;
 }
-.nav-btn-login {
+.btn-login {
   background: transparent;
   color: var(--white);
   padding: 0.5rem 1rem;
@@ -312,171 +258,11 @@ body.light .sun {
   border: 1px solid var(--primary-orange);
   margin-left: 0.5rem;
 }
-.nav-btn-cadastrar:hover, .nav-btn-login:hover {
+.btn-cadastrar:hover, .btn-login:hover {
   /* transform: scale(1.05); */
   transition: var(--transition-fast);
   filter: brightness(1.1);
 }
-.nav-btn-login:hover {
+.btn-login:hover {
   background: var(--primary-orange);
-}
-
-/** ===== BANNER ===== */
-.banner {
-  position: relative;
-}
-
-.banner img {
-  width: 100%;
-  height: 32rem;
-  object-fit: cover;
-  opacity: 0.7;
-}
-
-.banner-inner {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  text-align: center;
-  padding: 1rem;
-}
-
-.banner-text-inner {
-  max-width: 900px; 
-  padding: 0 1rem;
-}
-
-.banner-text-orange {
-  color: var(--primary-orange);
-  font-weight: 700;
-}
-.banner-text-purple {
-  color: var(--primary-purple);
-  font-weight: 700;
-}
-
-.banner h1 {
-  font-size: 2.9rem;
-  margin-bottom: 0.75rem;
-  font-weight: 700;
-  color: var(--white);
-}
-.banner p {
-  color: var(--gray-300);
-  font-size: 1.125rem;
-  margin-bottom: 1rem;
-}
-
-/* ===== SECTIONS & CARDS ===== */
-.section {
-  padding: 3rem 0;
-}
-.section .section-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-}
-.section h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--white);
-}
-.link-ghost {
-  color: var(--primary-orange);
-  text-decoration: none;
-}
-.link-ghost:hover {
-  text-decoration: underline;
-}
-
-.grid {
-  display: grid;
-  gap: 1.5rem;
-}
-
-/* ofertas grid default = 1 col */
-.ofertas-grid {
-  grid-template-columns: repeat(1, 1fr);
-}
-
-@media (min-width: 768px) {
-  .ofertas-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .ofertas-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.card {
-  background: var(--gray-800);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(2, 6, 23, 0.6);
-  transition: transform 220ms ease, box-shadow 220ms ease;
-}
-.card:hover {
-  transform: translateY(-6px);
-}
-.card img {
-  height: 10rem;
-  object-fit: cover;
-  width: 100%;
-}
-.card .card-body {
-  padding: 1rem;
-}
-
-.card h3 {
-  font-size: 1.125rem;
-  margin-bottom: 0.5rem;
-}
-.card p {
-  color: var(--gray-400);
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
-}
-
-
-
-
-/** ===== FOOTER ===== */
-.container-footer {
-  padding-top:2rem; 
-  padding-bottom:2rem;
-}
-
-.footer-list{
-  list-style:none; 
-  padding-left:0; 
-  margin-top:1rem;
-}
-
-.footer-list a{
-  text-decoration: none;
-}
-
-.footer-midia{
-  margin-top:2rem; 
-  padding-top:2rem; 
-  border-top:1px solid 
-  #111827; display:flex; 
-  justify-content:space-between; 
-  align-items:center; 
-  flex-wrap:wrap; 
-  gap:1rem;
-}
-
-.footer>p{
-  color:var(--gray-400);
 }
