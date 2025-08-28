@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark light" />
     <title>Doe e Ganhe</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
-  
+
   <body>
     <!-- navbar -->
     <nav class="navbar">
@@ -21,7 +21,7 @@
           <div class="nav-container">
             <!-- logo "Doe & Ganhe" -->
             <div class="nav-logo">
-              
+
               <h1 onclick="window.location.href='index.html'">Doe e Ganhe</h1>
             </div>
             <!-- links/paginas cassino e ongs -->
@@ -141,13 +141,57 @@
               </div>
 
               <!--* Botoes de cadastrar e login -->
-              <button class="nav-btn-cadastrar" onclick="window.location.href='cadastro.html'">Cadastre-se</button>
-              <button class="nav-btn-login" onclick="window.location.href='registro.html'">Entrar</button>
+              <button class="nav-btn-cadastrar" onclick="SignUpOpenModal()">Cadastre-se</button>
+              <button class="nav-btn-login" onclick="openModal()">Login</button>
             </div>
           </div>
         </div>
+
       </div>
     </nav>
+
+      <!-- Modal de Login -->
+      <div id="loginModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="CloseLoginModal()">&times;</span>
+          <h2>Login</h2>
+          <form action="/login" method="POST">
+            <label for="username">Usuário</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Entrar</button>
+          </form>
+        </div>
+      </div>
+
+        <!-- Modal de Registro -->
+      <div id="SignUpModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="CloseRegisterModal()">&times;</span>
+          <h2>Registre-se</h2>
+          <form action="" method="POST">
+            <label for="name">Nome completo</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="cpf">CPF</label>
+            <input type="text" id="cpf" name="cpf" required>
+
+            <label for="birth-date">Data de nascimento</label>
+            <input type="date" name="birth-date" id="birth-date"required>
+
+            <label for="username">Usuário</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Entrar</button>
+          </form>
+        </div>
+      </div>
 
     <!--* Conteudo principal -->
     <main>
@@ -304,6 +348,6 @@
     </footer>
 
     </main>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
