@@ -155,15 +155,16 @@
         <div class="modal-content">
           <span class="close" onclick="CloseLoginModal()">&times;</span>
           <h2>Login</h2>
-          <form action="/login" method="POST">
+          <form id="form-login" action="." method="POST">
             <label for="username">Usuário</label>
-            <input type="text" id="username" name="username" required>
+            <input type="text" id="username-login name="username" required>
 
             <label for="password">Senha</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password-login" name="password" required>
 
             <button type="submit">Entrar</button>
           </form>
+          <p id="mensagem-login"></p>
         </div>
       </div>
 
@@ -172,24 +173,28 @@
         <div class="modal-content">
           <span class="close" onclick="CloseRegisterModal()">&times;</span>
           <h2>Registre-se</h2>
-          <form action="" method="POST">
+          <form id="form-registro" action="."  method="POST">
             <label for="name">Nome completo</label>
             <input type="text" id="name" name="name" required>
 
             <label for="cpf">CPF</label>
             <input type="text" id="cpf" name="cpf" required>
 
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" required>
+
             <label for="birth-date">Data de nascimento</label>
             <input type="date" name="birth-date" id="birth-date"required>
 
             <label for="username">Usuário</label>
-            <input type="text" id="username" name="username" required>
+            <input type="text" id="username-register" name="username" required>
 
             <label for="password">Senha</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password-register" name="password" required>
 
             <button type="submit">Registrar-se</button>
           </form>
+          <p id="mensagem-registro"></p>
         </div>
       </div>
 
