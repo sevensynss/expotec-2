@@ -2009,11 +2009,18 @@ input[type=number]::-webkit-outer-spin-button {
 }
 /* Colunas */
 .modal-mines-left, .modal-mines-center, .modal-mines-right {
-  flex: 1; min-width: 0; height: 100%;
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
   max-width: 320px;
 }
-.modal-mines-left .bet-controls-card { max-width: 270px; }
+.modal-mines-left .bet-controls-card {
+  max-width: 270px;
+ }
 
 /* Card ONG central (reaproveita estilos) */
 #selectedOngCardMines, .selected-ong-card {
@@ -2051,142 +2058,91 @@ input[type=number]::-webkit-outer-spin-button {
 #minesStartBtn { min-width: 140px; }
 #minesCashoutBtn { min-width: 120px; }
 
-/* ===== BLACKJACK (VISUAL VERDE DENTRO DO MODAL) ===== */
-
-#blackjackModal.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 2000;
-  background: rgba(0,0,0,.4);
-  backdrop-filter: blur(6px);
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-}
-
+/* ===== BLACKJACK MODAL =====  */
 .modal-blackjack-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: var(--gray-900);
-  color: var(--white);
-  padding: 1rem;
-  border-radius: 18px;
-  max-width: 1100px;
-  width: 100%;
-  box-sizing: border-box;
-  box-shadow: 0 8px 25px rgba(0,0,0,.25);
-  position: relative;
-  height: 640px;
+    background: var(--gray-900);
+    color: var(--white);
+    padding: 0;
+    border-radius: 18px;
+    max-width: 950px;
+    width: 100%;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    position: relative;
+    overflow: hidden;
+    padding-top: 56px; /* Adiciona espaço para a topbar */
+    min-height: 650px; /* Define uma altura mínima fixa */
+    max-height: 700px;
 }
 
-/* espaço para a topbar (título + X) */
-#blackjackModal .modal-blackjack-content { padding-top: 4.25rem; }
+/* Centraliza o título na topbar */
+#blackjackModal .modal-topbar h2 {
+    margin: 0; /* Remove margens que desalinhavam */
+    font-size: 1.8rem;
+}
+
+.modal-blackjack-content .modal-blackjack-main {
+    padding: 1.5rem 2.5rem 2rem 2.5rem;
+}
 
 .modal-blackjack-main {
-  display: block; /* a mesa ocupa todo o corpo */
-  width: 100%;
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
 }
 
-#blackjackModal .bj-mesa{
-  position: relative;
-  width: 100%;
-  max-width: 980px;
-  height: 480px;
-  margin: 0 auto;
-  background: radial-gradient(circle at 50% 45%, #157a3b 0%, #094422 100%);
-  border-radius: 18px;
-  box-shadow: inset 0 0 50px #000, 0 10px 24px rgba(0,0,0,.35);
-  overflow: hidden;
+/* Coluna da Esquerda: Controles */
+.bj-controls-panel {
+    display: flex;
+    align-items:center;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 300px;
+    flex-shrink: 0;
 }
 
-/* Botão ONG (discreto no topo esquerdo) */
-#blackjackModal .bj-ong-btn{
-  position: absolute;
-  top: 10px; left: 10px;
-  padding: .4rem .8rem;
-  border-radius: 9999px;
-  border: 1px solid rgba(255,255,255,.2);
-  background: rgba(0,0,0,.25);
-  color: #fff;
-  font-weight: 600;
-  cursor: pointer;
-}
-#blackjackModal .bj-ong-btn:hover{
-  background: rgba(0,0,0,.35);
+.ong-controls-card {
+    background: var(--gray-800);
+    border-radius: 16px;
+    padding: 1.5rem;
+    min-height: 230px; /* Garante espaço para o card da ONG */
 }
 
-
-/* Card de ONG (compacto) no topo direito da mesa */
-#blackjackModal .bj-ong-card{
-  position: absolute;
-  top: 10px; right: 10px;
-  max-width: 280px;
-  background: rgba(17,24,39,.65);
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 12px;
-  padding: .6rem .8rem;
-  color: #fff;
-  box-shadow: 0 6px 18px rgba(0,0,0,.35);
-}
-#blackjackModal .bj-ong-card h4{
-  margin: .25rem 0 .25rem; font-size: 1rem; color: var(--orange-primary);
-}
-#blackjackModal .bj-ong-card p{
-  margin: 0; font-size: .85rem; color: var(--gray-300);
+/* Coluna da Direita: Jogo */
+.bj-game-area {
+    flex-grow: 1;
+    background: #0a3821;
+    margin-top:1rem;
+    border-radius: 16px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 480px;
+    max-height: 600px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.4);
 }
 
-
-#blackjackModal .bj-controls-card{
-  position: absolute;
-  left: 12px; bottom: 92px;
-  background: rgba(17,24,39,.65);
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 12px;
-  padding: .7rem .8rem;
-  width: 240px;
-  box-shadow: 0 6px 18px rgba(0,0,0,.35);
-  color: #fff;
-}
-#blackjackModal .bj-controls-card label{
-  display:block; font-weight:600; margin-bottom:.4rem; color:#fff;
-}
-#blackjackModal .bj-bet-row{
-  display:flex; gap:.5rem; align-items:center;
-}
-#blackjackModal .bj-bet-row .btn-outline{
-  min-width:56px; padding:.55rem .6rem; border-radius:10px;
-}
-#blackjackModal #bj-bet-input{
-  width: 110px; text-align:center; padding:.55rem .4rem;
-  border-radius:10px; border:2px solid var(--orange-primary);
-  background: var(--gray-900); color:#fff; font-weight:700;
-}
-#bj-bet-input::-webkit-inner-spin-button,
-#bj-bet-input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
-
-#blackjackModal .bj-controls-help{
-  display:block; margin-top:.35rem; color: var(--gray-300);
+.bj-hand-area {
+    width: 100%;
+    min-height: 120px;
 }
 
+.bj-dealer-area {
+    margin-bottom: 2rem;
+}
 
-/* Dealer */
-#blackjackModal .bj-dealer-area{
-  position: absolute;
-  top: 14%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center;
+.bj-hand-area h3 {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
 }
-#blackjackModal .bj-dealer-area h3{
-  margin: 0 0 .25rem 0;
-  color: #ffd700;
-  text-shadow: 0 1px 6px rgba(0,0,0,.6);
-  display: flex; align-items:center; gap:.5rem;
-}
-#blackjackModal .bj-val{
+
+.bj-val {
   color: #fff;
   font-weight: 800;
   background: rgba(0,0,0,.35);
@@ -2195,110 +2151,106 @@ input[type=number]::-webkit-outer-spin-button {
   padding: .1rem .5rem;
   font-size: .9rem;
 }
-#blackjackModal .hand{
-  display: flex; gap: 10px; margin: 10px;
+
+.hand {
+  display: flex;
+  gap: 10px;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-/* Player área central */
-#blackjackModal .bj-cards-area{
-  position: absolute;
-  top: 40%;
-  left: 0; right: 0;
-  display: flex; justify-content: center;
-}
-#blackjackModal .bj-player-area{
-  display: flex; flex-direction: column; align-items: center;
-}
-#blackjackModal .bj-player-area h3{
-  margin: 0 0 .25rem 0;
-  color: #ffd700;
-  text-shadow: 0 1px 6px rgba(0,0,0,.6);
-  display: flex; align-items:center; gap:.5rem;
-}
-
-/* Carta (usa a classe já usada no JS: .bj-card) */
-#blackjackModal .bj-card{
-  width: 70px; height: 100px;
+.bj-card {
+  width: 80px;
+  height: 115px;
   border-radius: 8px;
   background: #fff;
   color: #000;
-  text-align: center;
-  line-height: 100px;
-  font-size: 1.1em;
-  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  font-weight: 700;
   border: 1px solid rgba(0,0,0,.25);
   box-shadow: 0 3px 10px rgba(0,0,0,.5);
+  position: relative;
 }
-#blackjackModal .bj-card.red{ color:#dc2626; }
-#blackjackModal .bj-card.back{
-  background:#111827; color:#111827; border-color:#111827;
-}
-
-/* Ficha/aposta */
-#blackjackModal .bj-chip{
-  position: absolute;
-  bottom: 128px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 64px; height: 64px;
-  border-radius: 50%;
-  background: #ffcc00;
-  color: #000;
-  font-weight: 800;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 6px 16px rgba(0,0,0,.5);
-  border: 3px solid rgba(0,0,0,.25);
+.bj-card.red { color:#dc2626; }
+.bj-card.back {
+  background: linear-gradient(135deg, #4a0e8a, #8a2be2);
+  color: transparent;
+  border-color: #3e0c70;
 }
 
-/* Botões de ação */
-#blackjackModal .bj-buttons{
-  position: absolute;
-  bottom: 28px;
-  left: 0; right: 0;
-  display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
-}
-#blackjackModal .bj-btn{
-  background: radial-gradient(circle, #1e90ff 0%, #004aad 100%);
-  border: none;
-  border-radius: 50px;
-  color: #fff;
-  font-size: 1.05em;
-  font-weight: 700;
-  padding: 12px 26px;
-  cursor: pointer;
-  transition: transform .2s ease, filter .3s ease, opacity .2s ease;
-}
-#blackjackModal .bj-btn:hover{ transform: scale(1.05); filter: brightness(1.08); }
-#blackjackModal .bj-btn:disabled{ opacity: .6; cursor: not-allowed; }
-
-#blackjackModal .bj-double{
-  background: radial-gradient(circle, #ffa726 0%, #e65100 100%);
-}
-#blackjackModal .bj-stand{
-  background: radial-gradient(circle, #ef5350 0%, #b71c1c 100%);
+.bj-info {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--orange-primary);
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
 }
 
-/* Mensagens */
-#blackjackModal .bj-info{
-  position: absolute;
-  bottom: 96px;
-  left: 0; right: 0;
-  text-align: center;
-  font-size: 1.1em;
-  color: #ffeb3b;
-  font-weight: 800;
-  text-shadow: 1px 1px 4px #000;
+.bj-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-top: 1rem;
 }
 
-/* Exibição da aposta */
-#blackjackModal .bj-bet-display{
-  position: absolute;
-  bottom: 8px;
-  left: 0; right: 0;
-  text-align: center;
-  color: #fff;
-  font-weight: 600;
+.bj-btn {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background: var(--orange-primary);
+    color: var(--white);
+    transition: background 0.2s;
 }
+
+.bj-btn:hover:not(:disabled) {
+    filter: brightness(1.1);
+}
+
+.bj-btn:disabled {
+    background: var(--gray-700);
+    color: var(--gray-500);
+    cursor: not-allowed;
+}
+
+.bj-btn.bj-stand { background: #c4452a; }
+.bj-btn.bj-double { background: #3b82f6; }
+
+.bj-btn.bj-stand:hover:not(:disabled) { background: #a13923; }
+.bj-btn.bj-double:hover:not(:disabled) { background: #2563eb; }
+
+/* Ajuste no card da ONG selecionada para o novo container */
+#selectedOngCardBlackjack {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 1rem;
+    text-align: center;
+}
+
+#selectedOngCardBlackjack .ong-tag {
+    margin: 0 auto 0.5rem auto;
+}
+
+#selectedOngCardBlackjack h4 {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+    color: var(--orange-primary);
+}
+
+
+
 
 /*! ========== JOGO AVIATOR ========== */
 
@@ -3319,4 +3271,9 @@ main {
   border-radius: 9999px;
   width: 90%;
   background: var(--orange-primary)
+}
+
+/* ===== CLASSES UTILITÁRIAS ===== */
+.invisible {
+  display: none !important;
 }

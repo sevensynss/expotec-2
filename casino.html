@@ -89,8 +89,8 @@
             </div>
 
             <!--* Botoes de cadastrar e login -->
-              <button id="Registerbtn" class="nav-btn-register" onclick="SignUpOpenModal()">Cadastre-se</button>
-              <button id="Loginbtn" class="nav-btn-login" onclick="openModal()">Login</button>
+              <button id="Registerbtn" class="nav-btn-register" >Cadastre-se</button>
+              <button id="Loginbtn" class="nav-btn-login" >Login</button>
 
               <div id="balance-info" class="nav-user-balance invisible">
                 <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="#d1d5db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-user-round-icon lucide-circle-user-round user-icon"><path d="M18 20a6 6 0 0 0-12 0"/><circle cx="12" cy="10" r="4"/><circle cx="12" cy="12" r="10"/></svg>
@@ -116,7 +116,7 @@
   <!-- Modal de Login -->
   <div id="loginModal" class="modal">
     <div class="modal-content">
-      <span class="close" onclick="CloseLoginModal()">&times;</span>
+      <span class="close" >&times;</span>
       <h2>Login</h2>
       <form id="form-login">
         <label for="username-login">Usuário</label>
@@ -139,7 +139,7 @@
   <!-- Modal de Registro -->
   <div id="SignUpModal" class="modal">
     <div class="modal-content">
-      <span class="close" onclick="CloseRegisterModal()">&times;</span>
+      <span class="close" >&times;</span>
       <h2>Registre-se</h2>
       <form id="form-registro">
         <label for="name">Nome completo</label>
@@ -149,11 +149,14 @@
         <input type="text" id="cpf" name="cpf" required>
 
         <label for="birth-date">Data de nascimento</label>
-        <input type="date" name="birth-date" id="birth-date" required>
+        <input type="date" name="birth-date" id="birth-date" placeholder="DD/MM/AAAA" required>
+
         <label for="username-register">Usuário</label>
         <input type="text" id="username-register" name="username-register" required>
+
         <label for="email">E-mail</label>
         <input type="email" id="email" name="email" required>
+
         <label for="password-register">Senha</label>
         <input type="password" id="password-register" name="password-register" required>
 
@@ -169,7 +172,7 @@
     <div class="modal-roleta-content">
       <div class="modal-topbar">
       <h2>Roleta da Fortuna</h2>
-      <button class="modal-close-btn" aria-label="Fechar" onclick="closeAnyModal(this)">&#215;</button>
+      <button class="modal-close-btn" aria-label="Fechar">&#215;</button>
     </div>
       <div class="modal-roleta-main" style="display: flex; gap: 2rem;">
           <!-- Bloco de aposta estilizado -->
@@ -292,7 +295,7 @@
     <div class="modal-mines-content">
       <div class="modal-topbar">
       <h2 style="margin-bottom: 1.6rem;">Campo Minado</h2>
-      <button class="modal-close-btn" aria-label="Fechar" onclick="closeAnyModal(this)">&#215;</button>
+      <button class="modal-close-btn" aria-label="Fechar">&#215;</button>
     </div>
       <div class="modal-mines-main">
         <!-- Esquerda: controles -->
@@ -324,7 +327,7 @@
 
         <!-- Centro: ONG -->
         <div class="modal-mines-center">
-          <div style="margin-bottom:1rem;text-align:center;">
+          <div style="margin-bottom:1rem;">
             <h3 style="color:var(--orange-primary);margin-bottom:.3rem;">Escolha uma ONG para doar 2% das suas apostas</h3>
             <p style="color:var(--gray-400);font-size:.95rem;">
               Sua escolha faz diferença! Selecione uma ONG para receber parte das suas apostas.
@@ -355,65 +358,65 @@
   <div class="modal-blackjack-content">
     <div class="modal-topbar">
       <h2>Blackjack</h2>
-      <button class="modal-close-btn" aria-label="Fechar" onclick="closeAnyModal(this)">&#215;</button>
+      <button class="modal-close-btn" aria-label="Fechar">&#215;</button>
     </div>
 
     <div class="modal-blackjack-main">
-      <div class="bj-mesa">
-        <!-- Botão para abrir modal de ONG -->
-        <button class="bj-ong-btn" id="chooseOngBtnBlackjack">Escolher ONG</button>
-
-        <!-- Card da ONG selecionada -->
-        <div id="selectedOngCardBlackjack" class="bj-ong-card" style="display:none;">
-          <span class="ong-tag" id="selectedOngTagBlackjack"></span>
-          <h4 id="selectedOngNameBlackjack"></h4>
-          <p id="selectedOngDescBlackjack"></p>
+      <!-- Coluna Esquerda: Controles de Aposta e ONG -->
+      <div class="bj-controls-panel">
+        <div>
+            <h3 style="color:var(--orange-primary);">Escolha uma ONG para doar 2% das suas apostas</h3>
+            <p style="color:var(--gray-400);font-size:.95rem;">
+              Sua escolha faz diferença! Selecione uma ONG para receber parte das suas apostas.
+            </p>
+          </div>
+        <div class="bet-controls-card">
+          <div style="font-weight:600;font-size:1.1rem;margin-bottom:1rem;color:var(--white);">Controles</div>
+          <div style="margin-bottom:1.5rem;">
+            <label style="font-size:.95rem;color:var(--white);">Valor da Aposta</label>
+            <div style="display:flex;gap:.5rem;align-items:center;">
+              <button type="button" id="bj-bet-minus" class="btn-outline" style="min-width:48px;">-10</button>
+              <input type="number" id="bj-bet-input" value="100" min="1" style="width:90px;text-align:center;">
+              <button type="button" id="bj-bet-plus" class="btn-outline" style="min-width:48px;">+10</button>
+            </div>
+          </div>
+          <small class="bj-controls-help">Aposta Atual: R$ <span id="bj-bet-display">100</span></small>
         </div>
 
+              <div class="ong-controls-card">
+                <button class="btn-primary" id="chooseOngBtnBlackjack" style="width:100%; margin-bottom:1rem;">Escolher ONG</button>
+                <div id="selectedOngCardBlackjack" class="selected-ong-card" style="display:none;">
+                  <span class="ong-tag" id="selectedOngTagBlackjack"></span>
+                  <h4 id="selectedOngNameBlackjack"></h4>
+                  <p id="selectedOngDescBlackjack" style="font-size: 0.85rem; color: var(--gray-400); margin-top: 0.5rem;"></p>
+                </div>
+              </div>
+            </div>
+
+
+      <!-- Coluna Direita: Mesa de Jogo -->
+      <div class="bj-game-area">
         <!-- Dealer -->
-        <div class="bj-dealer-area">
+        <div class="bj-hand-area bj-dealer-area">
           <h3>Dealer <span class="bj-val" id="bj-dealer-value">0</span></h3>
           <div class="hand" id="bj-dealer"></div>
         </div>
 
+        <!-- Mensagem/Resultado -->
+        <div class="bj-info" id="bj-result">Comece uma rodada!</div>
+
         <!-- Jogador -->
-        <div class="bj-cards-area">
-          <div class="bj-player-area">
-            <h3>Você <span class="bj-val" id="bj-player-value">0</span></h3>
-            <div class="hand" id="bj-player"></div>
-          </div>
-        </div>
-
-        <!-- Ficha/aposta  -->
-        <div class="bj-chip">
-          <span id="bj-bet-display">100</span>
-        </div>
-
-        <!-- Controles de aposta -->
-        <div class="bj-controls-card">
-          <label for="bj-bet-input">Valor da Aposta</label>
-          <div class="bj-bet-row">
-            <button type="button" id="bj-bet-minus" class="btn-outline">-10</button>
-            <input type="number" id="bj-bet-input" value="100" min="1">
-            <button type="button" id="bj-bet-plus" class="btn-outline">+10</button>
-          </div>
-          <small class="bj-controls-help">Saldo e ganhos serão atualizados automaticamente.</small>
+        <div class="bj-hand-area bj-player-area">
+          <h3>Você <span class="bj-val" id="bj-player-value">0</span></h3>
+          <div class="hand" id="bj-player"></div>
         </div>
 
         <!-- Ações -->
         <div class="bj-buttons">
-          <button id="bjStartBtn" class="bj-btn">START</button>
-          <button id="bjHitBtn" class="bj-btn" disabled>HIT</button>
-          <button id="bjStandBtn" class="bj-btn bj-stand" disabled>STAND</button>
-          <button id="bjDoubleBtn" class="bj-btn bj-double" disabled>DOUBLE</button>
-        </div>
-
-        <!-- Mensagem/Resultado -->
-        <div class="bj-info" id="bj-result"></div>
-
-        <!-- Rodapé de aposta -->
-        <div class="bj-bet-display">
-          Aposta Atual: R$ <span id="bj-bet-display-2">100</span>
+          <button id="bjStartBtn" class="bj-btn">INICIAR</button>
+          <button id="bjHitBtn" class="bj-btn" disabled>PEDIR</button>
+          <button id="bjStandBtn" class="bj-btn bj-stand" disabled>PARAR</button>
+          <button id="bjDoubleBtn" class="bj-btn bj-double" disabled>DOBRAR</button>
         </div>
       </div>
     </div>
@@ -958,5 +961,9 @@
   </div>
   <script src="js/script.js"></script>
   <script src="js/casino.js"></script>
-   <script src="js/aviator.js"></script>
+  <script src="js/aviator.js"></script>
+  <script src="js/roulette.js"></script>
+  <script src="js/mines.js"></script>
+  <script src="js/blackjack.js"></script>
+  <script src="js/tiger.js"></script>
 </body>

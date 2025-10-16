@@ -409,7 +409,6 @@ function render() {
   }
 }
 
-
 function resetAll() {
   state = "waiting";
   rodadaEncerrada = false;
@@ -453,6 +452,22 @@ function resetAll() {
   document.querySelectorAll(".aviator-prevalor, .aviator-ajuste-valor").forEach(btn => {
     btn.disabled = false;
   });
+
+
+  //  Reseta a ONG selecionada
+  ongSelecionada = null;
+  if (selectedOngCardAviator) {
+    selectedOngCardAviator.style.display = "none";
+  }
+
+  //  Reseta os valores de aposta e a seleção de botões
+  document.querySelectorAll('.aviator-valor-aposta').forEach(input => {
+    input.value = "10.00"; // Define um valor padrão
+  });
+  document.querySelectorAll('.aviator-prevalor').forEach(btn => {
+    btn.classList.remove('selecionado');
+  });
+
 }
 
 function loop(nowMs) {
@@ -466,27 +481,35 @@ function loop(nowMs) {
 // Abrir e fechar modal do Aviator
 document.addEventListener("DOMContentLoaded", () => {
   const aviatorModal = document.getElementById("aviatorModal");
-  const aviatorBtn = document.getElementById("game-play-aviator");
-  const aviatorClose = document.querySelector(".aviator-close");
+  const aviatorClose = document.querySelector("#aviatorModal .aviator-close");
 
-  if (aviatorBtn && aviatorModal) {
-    aviatorBtn.addEventListener("click", () => {
-      aviatorModal.style.display = "flex";
-      resetAll();
-    });
-  }
+  // Encontra todos os botões que abrem o modal do Aviator
+  document.querySelectorAll("#game-play-aviator, .game-play-aviator").forEach(btn => {
+    if (btn) {
+      btn.addEventListener("click", () => {
+        if (aviatorModal) {
+          aviatorModal.style.display = "flex";
+          resetAll(); // Reseta o jogo ao abrir
+        }
+      });
+    }
+  });
 
+  // Botão de fechar (X)
   if (aviatorClose) {
     aviatorClose.addEventListener("click", () => {
-      aviatorModal.style.display = "none";
-      resetAll();
+      if (aviatorModal) {
+        aviatorModal.style.display = "none";
+        resetAll(); // Reseta o jogo ao fechar pelo 'X'
+      }
     });
   }
 
+  // Clicar fora do modal (no backdrop)
   window.addEventListener("click", e => {
     if (e.target === aviatorModal) {
       aviatorModal.style.display = "none";
-      resetAll();
+      resetAll(); // Reseta o jogo ao fechar clicando fora
     }
   });
 
