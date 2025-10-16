@@ -1113,6 +1113,32 @@ footer p {
 }
 
 /*! ========== CASINO.HTML ===========  */
+
+.nav-user-balance {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .45rem 0.5rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, var(--purple-primary), var(--orange-primary));
+  color: var(--white);
+  font-weight: 600;
+  font-size: .9rem;
+  line-height: 1;
+  box-shadow: 0 4px 14px rgba(0,0,0,.35);
+  white-space: nowrap;
+}
+
+.nav-user-balance svg,
+.nav-user-balance .user-icon {
+  width: 22px;
+  height: 22px;
+  color: #fff;
+  opacity: .9;
+  display: inline-block;
+}
+
+
 /** ===== MAIN =====  */
 .content {
   padding-top: 4rem;
@@ -1144,14 +1170,9 @@ footer p {
   font-weight: 600;
 }
 
-.casino-sidebar-menu {
-  background: var(--gray-900);
-}
-
-.casino-sidebar-menu-item,
 .casino-sidebar-menu-item-ranking {
   background: var(--gray-900);
-  padding: 1rem;
+  padding: 0 1rem 0 1rem;
   cursor: pointer;
   border-radius: 30px;
   margin: 0 .25rem .5rem .25rem;
@@ -1163,6 +1184,13 @@ footer p {
 
 .casino-sidebar-menu-item {
   justify-content: space-between;
+  padding-right: 1rem;
+  cursor: pointer;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  height: 3rem;
 }
 
 .casino-sidebar-menu-item:hover,
@@ -1434,51 +1462,65 @@ footer p {
 /** ===== ROULETTE MODAL =====  */
 /* ===== HEADER DO MODAL DA ROLETA ===== */
 
-.modal-roleta-header {
-  width: 100%;
-  display: block;
-  position: relative;
+.modal-topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 3.5rem 0 1.5rem;
-  box-sizing: border-box;
-  margin:0 0 1.2rem 0;
-  min-height:70px;
+  background: var(--gray-900);
+  border-bottom: 1px solid var(--trasparent-color);
+  box-shadow: 0 8px 18px rgba(0,0,0,.35);
+  z-index: 5;
+  padding: 0 3.5rem;
 }
 
-.modal-roleta-header #balance-info {
-  position: absolute;
-  top: 50%;
-  right: 1.5rem;
-  transform: translateY(-50%);
+
+.modal-topbar h2 {
   margin: 0;
-  background: linear-gradient(135deg, var(--purple-primary), var(--orange-primary));
-  padding: .45rem 1.1rem;
-  border-radius: 9999px;
-  font-size: .9rem;
-  font-weight: 600;
+  margin-top:1.5rem;
+  font-size: 1.8rem;
+  color: var(--orange-primary);
+  letter-spacing: .5px;
+  pointer-events: none;
+  text-align: center;
+}
+
+
+.modal-close-btn {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--white);
+  border: 1px solid var(--trasparent-color);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  line-height: 1;
-  box-shadow: 0 4px 14px rgba(0,0,0,.35);
-  white-space: nowrap;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.modal-close-btn:hover {
+  background: var(--orange-primary-transparent);
+  color: #fff;
+  border-color: var(--orange-primary);
 }
 
 
-.modal-roleta-header h2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* centro real do modal */
-  margin: 0;
-  font-size: 2.1rem;
-  line-height: 1;
-  color: var(--orange-primary);
-  letter-spacing: 1px;
-  text-align: center;
-  pointer-events: none;
+#rouletteModal .modal-roleta-content,
+#minesModal .modal-mines-content {
+  padding-top: 4.25rem;
 }
+
 
 #rouletteModal .modal-roleta-content {
   display: flex;
@@ -1925,7 +1967,1070 @@ input[type=number]::-webkit-outer-spin-button {
   }
 }
 
+/** ===== MINES MODAL =====  */
+#minesModal.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0,0,0,.4);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.modal-mines-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-900);
+  color: var(--white);
+  padding: 1rem;
+  border-radius: 18px;
+  max-width: 1100px;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 8px 25px rgba(0,0,0,.25);
+  position: relative;
+  height: 540px;
+}
+
+.modal-mines-main {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 370px;
+  margin: 0;
+}
+/* Colunas */
+.modal-mines-left, .modal-mines-center, .modal-mines-right {
+  flex: 1; min-width: 0; height: 100%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+  max-width: 320px;
+}
+.modal-mines-left .bet-controls-card { max-width: 270px; }
+
+/* Card ONG central (reaproveita estilos) */
+#selectedOngCardMines, .selected-ong-card {
+  background: var(--gray-800);
+  max-width: 340px; }
+
+/* Grid do Campo Minado */
+.mines-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 52px);
+  grid-auto-rows: 52px;
+  gap: 10px;
+  justify-content: center;
+}
+.mines-cell {
+  background: var(--gray-800);
+  border: 2px solid var(--gray-700);
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--white);
+  cursor: pointer;
+  user-select: none;
+  transition: transform .08s ease, background .2s ease, border-color .2s ease;
+}
+.mines-cell:hover { transform: translateY(-1px); }
+.mines-cell.disabled { pointer-events: none; opacity: .75; }
+.mines-cell.safe { background: rgba(34,197,94,.15); border-color: #22c55e; }
+.mines-cell.mine { background: rgba(239,68,68,.2); border-color: #ef4444; }
+
+/* Ações */
+.mines-actions { display: flex; gap: .6rem; }
+#minesStartBtn { min-width: 140px; }
+#minesCashoutBtn { min-width: 120px; }
+
+/* ===== BLACKJACK (VISUAL VERDE DENTRO DO MODAL) ===== */
+
+#blackjackModal.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0,0,0,.4);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.modal-blackjack-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-900);
+  color: var(--white);
+  padding: 1rem;
+  border-radius: 18px;
+  max-width: 1100px;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 8px 25px rgba(0,0,0,.25);
+  position: relative;
+  height: 640px;
+}
+
+/* espaço para a topbar (título + X) */
+#blackjackModal .modal-blackjack-content { padding-top: 4.25rem; }
+
+.modal-blackjack-main {
+  display: block; /* a mesa ocupa todo o corpo */
+  width: 100%;
+}
+
+#blackjackModal .bj-mesa{
+  position: relative;
+  width: 100%;
+  max-width: 980px;
+  height: 480px;
+  margin: 0 auto;
+  background: radial-gradient(circle at 50% 45%, #157a3b 0%, #094422 100%);
+  border-radius: 18px;
+  box-shadow: inset 0 0 50px #000, 0 10px 24px rgba(0,0,0,.35);
+  overflow: hidden;
+}
+
+/* Botão ONG (discreto no topo esquerdo) */
+#blackjackModal .bj-ong-btn{
+  position: absolute;
+  top: 10px; left: 10px;
+  padding: .4rem .8rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255,255,255,.2);
+  background: rgba(0,0,0,.25);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+#blackjackModal .bj-ong-btn:hover{
+  background: rgba(0,0,0,.35);
+}
+
+
+/* Card de ONG (compacto) no topo direito da mesa */
+#blackjackModal .bj-ong-card{
+  position: absolute;
+  top: 10px; right: 10px;
+  max-width: 280px;
+  background: rgba(17,24,39,.65);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 12px;
+  padding: .6rem .8rem;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,.35);
+}
+#blackjackModal .bj-ong-card h4{
+  margin: .25rem 0 .25rem; font-size: 1rem; color: var(--orange-primary);
+}
+#blackjackModal .bj-ong-card p{
+  margin: 0; font-size: .85rem; color: var(--gray-300);
+}
+
+
+#blackjackModal .bj-controls-card{
+  position: absolute;
+  left: 12px; bottom: 92px;
+  background: rgba(17,24,39,.65);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 12px;
+  padding: .7rem .8rem;
+  width: 240px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.35);
+  color: #fff;
+}
+#blackjackModal .bj-controls-card label{
+  display:block; font-weight:600; margin-bottom:.4rem; color:#fff;
+}
+#blackjackModal .bj-bet-row{
+  display:flex; gap:.5rem; align-items:center;
+}
+#blackjackModal .bj-bet-row .btn-outline{
+  min-width:56px; padding:.55rem .6rem; border-radius:10px;
+}
+#blackjackModal #bj-bet-input{
+  width: 110px; text-align:center; padding:.55rem .4rem;
+  border-radius:10px; border:2px solid var(--orange-primary);
+  background: var(--gray-900); color:#fff; font-weight:700;
+}
+#bj-bet-input::-webkit-inner-spin-button,
+#bj-bet-input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
+#blackjackModal .bj-controls-help{
+  display:block; margin-top:.35rem; color: var(--gray-300);
+}
+
+
+/* Dealer */
+#blackjackModal .bj-dealer-area{
+  position: absolute;
+  top: 14%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center;
+}
+#blackjackModal .bj-dealer-area h3{
+  margin: 0 0 .25rem 0;
+  color: #ffd700;
+  text-shadow: 0 1px 6px rgba(0,0,0,.6);
+  display: flex; align-items:center; gap:.5rem;
+}
+#blackjackModal .bj-val{
+  color: #fff;
+  font-weight: 800;
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 9999px;
+  padding: .1rem .5rem;
+  font-size: .9rem;
+}
+#blackjackModal .hand{
+  display: flex; gap: 10px; margin: 10px;
+}
+
+/* Player área central */
+#blackjackModal .bj-cards-area{
+  position: absolute;
+  top: 40%;
+  left: 0; right: 0;
+  display: flex; justify-content: center;
+}
+#blackjackModal .bj-player-area{
+  display: flex; flex-direction: column; align-items: center;
+}
+#blackjackModal .bj-player-area h3{
+  margin: 0 0 .25rem 0;
+  color: #ffd700;
+  text-shadow: 0 1px 6px rgba(0,0,0,.6);
+  display: flex; align-items:center; gap:.5rem;
+}
+
+/* Carta (usa a classe já usada no JS: .bj-card) */
+#blackjackModal .bj-card{
+  width: 70px; height: 100px;
+  border-radius: 8px;
+  background: #fff;
+  color: #000;
+  text-align: center;
+  line-height: 100px;
+  font-size: 1.1em;
+  font-weight: 800;
+  border: 1px solid rgba(0,0,0,.25);
+  box-shadow: 0 3px 10px rgba(0,0,0,.5);
+}
+#blackjackModal .bj-card.red{ color:#dc2626; }
+#blackjackModal .bj-card.back{
+  background:#111827; color:#111827; border-color:#111827;
+}
+
+/* Ficha/aposta */
+#blackjackModal .bj-chip{
+  position: absolute;
+  bottom: 128px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: #ffcc00;
+  color: #000;
+  font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,.5);
+  border: 3px solid rgba(0,0,0,.25);
+}
+
+/* Botões de ação */
+#blackjackModal .bj-buttons{
+  position: absolute;
+  bottom: 28px;
+  left: 0; right: 0;
+  display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+}
+#blackjackModal .bj-btn{
+  background: radial-gradient(circle, #1e90ff 0%, #004aad 100%);
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 1.05em;
+  font-weight: 700;
+  padding: 12px 26px;
+  cursor: pointer;
+  transition: transform .2s ease, filter .3s ease, opacity .2s ease;
+}
+#blackjackModal .bj-btn:hover{ transform: scale(1.05); filter: brightness(1.08); }
+#blackjackModal .bj-btn:disabled{ opacity: .6; cursor: not-allowed; }
+
+#blackjackModal .bj-double{
+  background: radial-gradient(circle, #ffa726 0%, #e65100 100%);
+}
+#blackjackModal .bj-stand{
+  background: radial-gradient(circle, #ef5350 0%, #b71c1c 100%);
+}
+
+/* Mensagens */
+#blackjackModal .bj-info{
+  position: absolute;
+  bottom: 96px;
+  left: 0; right: 0;
+  text-align: center;
+  font-size: 1.1em;
+  color: #ffeb3b;
+  font-weight: 800;
+  text-shadow: 1px 1px 4px #000;
+}
+
+/* Exibição da aposta */
+#blackjackModal .bj-bet-display{
+  position: absolute;
+  bottom: 8px;
+  left: 0; right: 0;
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+}
+
+/*! ========== JOGO AVIATOR ========== */
+
+/* ====== AVIATOR GAME - CSS ORGANIZADO ====== */
+
+/* Variáveis do Aviator */
+:root {
+    --aviator-multiplicador-bg: rgba(0, 153, 255, 0.8);
+    --red-neon: #ff0044;
+}
+
+/* Modal principal do Aviator */
+.modal-aviator {
+    background: #1a1a1a;
+    color: var(--gray-400);
+    border-radius: 12px;
+    width: 95%;
+    height: 95%;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    position: relative;
+    animation: fadeIn 0.6s ease;
+    align-items: center;
+    align-self: center;
+}
+
+
+.modal-aviator * {
+    font-size: 1rem;
+}
+
+/* Header do Aviator */
+.modal-aviator header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    background-color: #1a1a1a;
+    color: var(--red-neon);
+    box-shadow: 0 2px 5px #000;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    height: 3rem;
+    position: relative;
+}
+
+.modal-aviator header>h1 {
+    margin: 0;
+    font-size: 2rem;
+    flex: 1;
+}
+
+.modal-aviator header>div {
+    position: absolute;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.aviator-close {
+    font-size: 2rem;
+    cursor: pointer;
+    margin-left: 2rem;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Histórico */
+#aviator-historico {
+    margin-top: .5rem;
+    height: 6rem;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: inset -20px 0px 5px #1a1a1a;
+}
+
+#aviator-multiplicadores {
+    display: flex;
+    gap: .5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#aviator-multiplicadores span {
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 50px;
+    animation: fadeIn 0.5s ease;
+    background-color: #111;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    font-size: .75rem;
+}
+
+/* Jogo principal */
+main.aviator-jogo {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 0 2rem;
+}
+
+/* Gráfico e avião */
+.aviator-grafico-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0 0 10px var(--red-neon);
+    border-radius: 16px;
+    border: 1 solid var(--red-neon);
+}
+
+#aviator-grafico {
+    background-color: #000;
+    border: 2px solid var(--red-neon);
+    border-radius: 16px;
+    box-shadow: 0 0 10px var(--red-neon);
+    width: 100%;
+    height: 20.5rem;
+    z-index: 1;
+    overflow: hidden;
+}
+
+#aviator-aviao {
+    position: absolute;
+    width: 5rem;
+    height: auto;
+    pointer-events: none;
+    transform: translate(-50%);
+    transition: top 0.1s linear, left 0.1s linear;
+    filter: drop-shadow(0 0 5px var(--red-neon));
+    z-index: 2;
+}
+
+
+/* Multiplicador */
+.aviator-multiplicador-wrapper {
+    position: absolute;
+    margin-top: .5rem;
+    top: 1.5rem;
+    justify-content: center;
+    z-index: 10;
+    pointer-events: none;
+}
+
+#aviator-multiplicador-fundo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 17rem;
+    height: 3rem;
+    transform: translate(-50%, -50%);
+    border-radius: 50% / 40%;
+    background: radial-gradient(ellipse at center,
+            var(--aviator-multiplicador-bg) 0%,
+            rgba(0, 0, 0, 0) 80%);
+    filter: blur(30px);
+    z-index: 1;
+    overflow: hidden;
+}
+
+#aviator-multiplicador-atual {
+    position: relative;
+    font-size: 3.5em;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: center;
+    z-index: 2;
+    background: none !important;
+    border: none !important;
+    outline: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+    mix-blend-mode: normal;
+}
+
+/* Resultado final */
+#aviator-resultado-final {
+    position: absolute;
+    text-align: center;
+    top: 35%;
+    transform: translate(-50%, -50%) scale(0.8);
+    font-size: 28px;
+    font-weight: bold;
+    color: #ff4444;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Painel de controle das apostas */
+.aviator-painel-controle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "aposta1 aposta2"
+        "iniciar iniciar";
+    gap: 2rem;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+}
+
+.aviator-painel-apostas1 {
+    grid-area: aposta1;
+}
+
+.aviator-painel-apostas2 {
+    grid-area: aposta2;
+}
+
+.aviator-painel-apostas1,
+.aviator-painel-apostas2 {
+    display: flex;
+    flex-direction: column;
+    background-color: #1a1a1a;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--red-neon);
+}
+
+/* Botões principais */
+.modal-aviator button {
+    padding: auto;
+    background: linear-gradient(to bottom, #222, #111);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 0 5px #000;
+}
+
+.modal-aviator button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#aviator-iniciar {
+    grid-area: iniciar;
+    width: 100%;
+    padding: .5rem;
+    border-radius: 8px;
+    margin: 0;
+}
+
+.aviator-aposta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+
+.aviator-aposta h3 {
+    margin-top: 0;
+}
+
+.aviator-aposta input {
+    width: 80px;
+    padding: 5px;
+    background-color: #111;
+    color: #fff;
+    border: 1px solid var(--red-neon);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.aviator-aposta input,
+.aviator-aposta button,
+.aviator-aposta select,
+.aviator-aposta label,
+.aviator-aposta h3 {
+    margin: .25rem 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.aviator-controle-aposta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 5px;
+    width: 100%;
+}
+
+.aviator-ajuste-valor {
+    border-radius: 999px;
+    height: 2rem;
+    width: 2rem;
+}
+
+.aviator-ajuste-valor:hover {
+    background: linear-gradient(to bottom, #111, #222);
+}
+
+.aviator-ajuste-valor:active {
+    background: var(--red-neon);
+    transform: scale(1.1);
+    transition: 50ms;
+}
+
+.aviator-valores-rapidos {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
+    width: 100%;
+}
+
+.aviator-valores-rapidos button {
+    padding: 6px 12px;
+    background: linear-gradient(to bottom, #222, #111);
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px #000;
+}
+
+.aviator-valores-rapidos button:hover {
+    background: linear-gradient(to bottom, var(--red-neon), #cc0033);
+    color: #fff;
+    box-shadow: 0 0 10px var(--red-neon);
+}
+
+.aviator-prevalor.selecionado {
+    background: linear-gradient(to bottom, #151515, #222);
+    color: #fff;
+    box-shadow: 0 0 10px var(--red-neon);
+}
+
+/* Auto-retirada */
+.aposta label[for^="autoRetirada"] {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+.aposta input[id^="autoRetirada"] {
+    width: 100px;
+    padding: 2rem;
+    margin-top: 4px;
+    background-color: #111;
+    color: #fff;
+    border: 1px solid #00cfff;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 0 5px #00cfff;
+}
+
+.aposta input[id^="autoRetirada"]::placeholder {
+    color: #888;
+}
+
+.aviator-aposta-btn {
+    width: 6rem;
+    height: 2rem;
+    border-radius: 5px;
+}
+
+
+.aviator-aposta-btn:hover {
+    background: linear-gradient(to bottom, var(--red-neon), #cc0033);
+    box-shadow: 0 0 10px var(--red-neon);
+    transition: 100ms;
+}
+
+#aviator-iniciar.pronto {
+    background: linear-gradient(to bottom, var(--red-neon), #cc0033) !important;
+    color: #fff;
+    box-shadow: 0 0 10px var(--red-neon);
+}
+
+.aviator-aposta-btn.selecionado {
+    background: linear-gradient(to bottom, #007bff, #0055cc) !important;
+    color: #fff;
+    box-shadow: 0 0 10px #007bff;
+}
+
+/* Ongs */
+.aviator-ong-section {
+    grid-area: ong;
+    width: 14rem;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+}
+
+#aviator-choose-ong-btn {
+    font-size: .8rem;
+    width: 100%;
+}
+
+#aviator-choose-ong-btn:hover {
+    background: linear-gradient(to bottom, var(--red-neon), #cc0033);
+    box-shadow: 0 0 10px var(--red-neon);
+}
+
+.selected-ong-card-aviator {
+    background: var(--gray-800);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    min-width: 0;
+    min-height: 0;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 0 10px var(--red-neon);
+    font-size: 1rem;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 12.6rem;
+    width: 100%;
+}
+
+.selected-ong-card-aviator,
+.ong-tag-aviator {
+    font-size: 0.85rem;
+    background: var(--purple-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ong-tag-aviator {
+    padding-bottom: 5rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20%;
+}
+
+.ong-name-aviator {
+    font-size: 1.1rem;
+    margin: 0.2rem 0 0.1rem 0;
+    color: var(--orange-primary);
+    text-align: center;
+    width: 100%;
+}
+
+.ong-name-aviator {
+    margin-top: 20%;
+    padding: 0;
+}
+
+/* ===== MODAL DAS ONGS ===== */
+#ongModalAviator.modal-ong-aviator {
+    z-index: 3000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
+}
+
+.modal-ong-content-aviator {
+    background: var(--gray-900);
+    color: var(--white);
+    padding: 2.5rem 3rem;
+    border-radius: 18px;
+    max-width: 700px;
+    width: 100%;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-ong-content-aviator h2 {
+    text-align: center;
+    font-size: 1.6rem;
+    color: var(--orange-primary);
+    margin-bottom: 0.5rem;
+}
+
+.modal-ong-content-aviator p {
+    text-align: center;
+    color: var(--gray-400);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.modal-ong-content-aviator .close-aviator {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.modal-ong-content-aviator .ongs-list-aviator {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 1.2rem;
+    width: 100%;
+}
+
+.ong-card-aviator {
+    background: var(--gray-800);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0.7rem;
+    cursor: pointer;
+    transition: box-shadow 0.2s, border 0.2s;
+    min-height: 110px;
+    box-shadow: 0 4px 16px rgba(2, 6, 23, 0.10);
+    border: 2px solid transparent;
+}
+
+.ong-card-aviator.selected,
+.ong-card-aviator:hover {
+    border: 2px solid var(--orange-primary);
+    box-shadow: 0 8px 24px rgba(255, 127, 80, 0.15);
+}
+
+.ong-card-aviator img {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+}
+
+.ong-info-aviator{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    text-align: center;
+}
+
+.ong-tag-aviator {
+    background: var(--purple-primary);
+    color: var(--white);
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+    width: fit-content;
+}
+
+.ong-location-aviator,
+.ong-supporters-aviator,
+.ong-impact-aviator {
+    font-size: 0.95rem;
+    color: var(--gray-400);
+    margin-top: 2px;
+}
+
+/** EFEITOS */
+
+/* Tremor */
+.tremor {
+    animation: tremor 0.3s ease-in-out;
+}
+
+@keyframes tremor {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(-2px, 2px);
+    }
+
+    50% {
+        transform: translate(2px, -2px);
+    }
+
+    75% {
+        transform: translate(-2px, -2px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Mensagens de ganho/cancelamento */
+.aviator-ganho-aviso {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #00ff88;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 0 10px #00ff88;
+    z-index: 10;
+    animation: avisoSlide 2s ease forwards;
+}
+
+.aviator-ganho-aviso.cancelada {
+    background: #ff4444;
+    box-shadow: 0 0 10px #ff4444;
+    color: #fff;
+}
+
+@keyframes avisoSlide {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+    60% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    100% {
+        transform: translate(-50%, -120px) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Lista de apostas */
+#aviator-lista-apostas {
+    margin: 20px;
+    text-align: center;
+}
+
+/* Responsivo */
+@media screen and (max-width: 768px) {
+    main.aviator-jogo {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .aviator-grafico-container {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    #aviator-grafico {
+        width: 100%;
+        height: auto;
+    }
+
+    .aviator-painel-controle {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .aviator-aposta {
+        width: 100%;
+    }
+
+    .aviator-controle-aposta,
+    .aviator-valores-rapidos {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .aviator-valores-rapidos button,
+    .aviator-controle-aposta button {
+        flex: 1 1 40px;
+        margin: 4px;
+    }
+
+    .aviator-aposta input {
+        width: 100%;
+        max-width: 80px;
+    }
+
+    .aviator-aposta input[id^="autoRetirada"] {
+        max-width: 100px;
+    }
+
+    .aviator-multiplicador-wrapper {
+        top: 16px;
+    }
+
+    #aviator-multiplicador-atual {
+        font-size: 2.5em;
+    }
+
+    #aviator-resultado-final {
+        font-size: 1.5em;
+    }
+
+    .aviator-ganho-aviso {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 140px;
+        font-size: 0.9em;
+        padding: 6px 12px;
+    }
+}
+
 /* ===== RESPONSIVO ===== */
+
+@media (max-width: 700px) {
+  .navbar .nav-user-balance {
+    font-size: .8rem;
+    padding: .4rem .85rem;
+  }
+}
+
 @media (max-width: 700px) {
   .modal-roleta-header {
     padding: 1rem 1.2rem 0 1.2rem;
@@ -1980,11 +3085,33 @@ input[type=number]::-webkit-outer-spin-button {
   }
 }
 
+@media (max-width: 1100px) {
+  .modal-mines-content { height: auto; padding: 1rem; }
+  .modal-mines-main { flex-direction: column; gap: 1.2rem; height: auto; }
+  .modal-mines-left, .modal-mines-center, .modal-mines-right { max-width: 100%; height: auto; }
+  .mines-grid { grid-template-columns: repeat(5, 48px); grid-auto-rows: 48px; gap: 8px; }
+  .modal-mines-header { padding: 1rem 1.2rem 0 1.2rem; }
+  .modal-mines-header #mines-balance { right: 1rem; font-size: .9rem; }
+}
+
+@media (max-width: 1100px){
+  #blackjackModal .bj-mesa{ height: 460px; }
+  #blackjackModal .bj-card{ width: 60px; height: 86px; line-height: 86px; font-size: 1em; }
+}
+
+
+
 /*! ========== NGOS.HTML ===========  */
 /** ===== MAIN ===== */
 main {
   align-items: center;
   padding-top: 6rem;
+}
+
+@media (max-width: 1100px) {
+  .modal-blackjack-content { height: auto; padding: 1rem; }
+  .modal-blackjack-main { flex-direction: column; gap: 1.2rem; height: auto; }
+  .modal-blackjack-left, .modal-blackjack-center, .modal-blackjack-right { max-width: 100%; height: auto; }
 }
 
 /** ===== BANNER ===== */

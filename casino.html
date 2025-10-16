@@ -92,6 +92,11 @@
               <button id="Registerbtn" class="nav-btn-register" onclick="SignUpOpenModal()">Cadastre-se</button>
               <button id="Loginbtn" class="nav-btn-login" onclick="openModal()">Login</button>
 
+              <div id="balance-info" class="nav-user-balance invisible">
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="#d1d5db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-user-round-icon lucide-circle-user-round user-icon"><path d="M18 20a6 6 0 0 0-12 0"/><circle cx="12" cy="10" r="4"/><circle cx="12" cy="12" r="10"/></svg>
+                <span id="balance-text"></span>
+              </div>
+
               <!-- logout-->
             <button class="nav-btn-icon invisible" id="logout" title="logout" aria-label="logout">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out-icon lucide-log-out">
@@ -100,9 +105,6 @@
                 <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
               </svg>
             </button>
-
-
-
 
           </div>
         </div>
@@ -161,15 +163,16 @@
     </div>
   </div>
 
+      <!--JOGOS-->
+  <!------ROLETA------>
   <div id="rouletteModal" class="modal">
     <div class="modal-roleta-content">
-      <div class="modal-roleta-header">
-      <h2>Roleta Europeia</h2>
-      <div id="balance-info">Saldo: R$ 1000,00</div>
-      </div>
+      <div class="modal-topbar">
+      <h2>Roleta da Fortuna</h2>
+      <button class="modal-close-btn" aria-label="Fechar" onclick="closeAnyModal(this)">&#215;</button>
+    </div>
       <div class="modal-roleta-main" style="display: flex; gap: 2rem;">
           <!-- Bloco de aposta estilizado -->
-      <div id="balance-info"></div>
         <div class="modal-roleta-left">
           <button class="btn-primary" id="chooseOngBtn" style="margin-bottom:1.2rem;">Escolher ONG</button>
           <div class="bet-controls-card">
@@ -178,7 +181,7 @@
               <label style="font-size:.95rem;color:var(--white);">Valor da Aposta</label>
               <div style="display:flex;gap:.5rem;align-items:center;">
                 <button type="button" id="bet-minus" class="btn-outline" style="min-width:48px;">-10</button>
-                <input type="number" id="bet-input" value="50" min="1" style="width:90px;text-align:center;" disabled>
+                <input type="number" id="bet-input" value="50" min="1" style="width:90px;text-align:center;">
                 <button type="button" id="bet-plus" class="btn-outline" style="min-width:48px;">+10</button>
               </div>
             </div>
@@ -284,19 +287,304 @@
     </div>
   </div>
 
+  <!------CAMPO MINADO------>
+  <div id="minesModal" class="modal">
+    <div class="modal-mines-content">
+      <div class="modal-topbar">
+      <h2 style="margin-bottom: 1.6rem;">Campo Minado</h2>
+      <button class="modal-close-btn" aria-label="Fechar" onclick="closeAnyModal(this)">&#215;</button>
+    </div>
+      <div class="modal-mines-main">
+        <!-- Esquerda: controles -->
+        <div class="modal-mines-left">
+          <button class="btn-primary" id="chooseOngBtnMines" style="margin-bottom:1.2rem;">Escolher ONG</button>
+          <div class="bet-controls-card">
+            <div style="font-weight:600;font-size:1.1rem;margin-bottom:1rem;color:var(--white);">Controles</div>
+
+            <div style="margin-bottom:1rem;">
+              <label style="font-size:.95rem;color:var(--white);">Valor da Aposta</label>
+              <div style="display:flex;gap:.5rem;align-items:center;">
+                <button type="button" id="mines-bet-minus" class="btn-outline" style="min-width:48px;">-10</button>
+                <input type="number" id="mines-bet-input" value="50" min="1" style="width:90px;text-align:center;" >
+                <button type="button" id="mines-bet-plus" class="btn-outline" style="min-width:48px;">+10</button>
+              </div>
+            </div>
+
+            <div>
+              <label style="font-size:.95rem;color:var(--white);">Quantidade de Minas</label>
+              <div style="display:flex;gap:.5rem;align-items:center;margin-top:.5rem;">
+                <input type="range" id="mines-count" min="1" max="10" value="3" style="width:140px;">
+                <span id="mines-count-value" style="color:var(--gray-300);font-weight:600;">3</span>
+              </div>
+            </div>
+
+            <div id="mines-message" style="margin-top:.6rem;color:var(--red);font-size:.95rem;"></div>
+          </div>
+        </div>
+
+        <!-- Centro: ONG -->
+        <div class="modal-mines-center">
+          <div style="margin-bottom:1rem;text-align:center;">
+            <h3 style="color:var(--orange-primary);margin-bottom:.3rem;">Escolha uma ONG para doar 2% das suas apostas</h3>
+            <p style="color:var(--gray-400);font-size:.95rem;">
+              Sua escolha faz diferença! Selecione uma ONG para receber parte das suas apostas.
+            </p>
+          </div>
+          <div id="selectedOngCardMines" class="selected-ong-card" style="margin-bottom:1rem; display:none;">
+            <span class="ong-tag" id="selectedOngTagMines"></span>
+            <h3 id="selectedOngNameMines"></h3>
+            <p id="selectedOngDescMines"></p>
+          </div>
+        </div>
+
+        <!-- Direita: Grid e ações -->
+        <div class="modal-mines-right">
+          <div class="mines-grid" id="minesGrid" aria-label="Campo minado 5 por 5"></div>
+          <div id="minesResult" class="mines-result" style="margin-top:.6rem;color:var(--white);font-size:1.05rem;"></div>
+          <div class="mines-actions">
+            <button id="minesStartBtn" class="btn-primary">Iniciar</button>
+            <button id="minesCashoutBtn" class="btn-secundary" disabled>Sacar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!------BLACKJACK------>
+<div id="blackjackModal" class="modal">
+  <div class="modal-blackjack-content">
+    <div class="modal-topbar">
+      <h2>Blackjack</h2>
+      <button class="modal-close-btn" aria-label="Fechar" onclick="closeAnyModal(this)">&#215;</button>
+    </div>
+
+    <div class="modal-blackjack-main">
+      <div class="bj-mesa">
+        <!-- Botão para abrir modal de ONG -->
+        <button class="bj-ong-btn" id="chooseOngBtnBlackjack">Escolher ONG</button>
+
+        <!-- Card da ONG selecionada -->
+        <div id="selectedOngCardBlackjack" class="bj-ong-card" style="display:none;">
+          <span class="ong-tag" id="selectedOngTagBlackjack"></span>
+          <h4 id="selectedOngNameBlackjack"></h4>
+          <p id="selectedOngDescBlackjack"></p>
+        </div>
+
+        <!-- Dealer -->
+        <div class="bj-dealer-area">
+          <h3>Dealer <span class="bj-val" id="bj-dealer-value">0</span></h3>
+          <div class="hand" id="bj-dealer"></div>
+        </div>
+
+        <!-- Jogador -->
+        <div class="bj-cards-area">
+          <div class="bj-player-area">
+            <h3>Você <span class="bj-val" id="bj-player-value">0</span></h3>
+            <div class="hand" id="bj-player"></div>
+          </div>
+        </div>
+
+        <!-- Ficha/aposta  -->
+        <div class="bj-chip">
+          <span id="bj-bet-display">100</span>
+        </div>
+
+        <!-- Controles de aposta -->
+        <div class="bj-controls-card">
+          <label for="bj-bet-input">Valor da Aposta</label>
+          <div class="bj-bet-row">
+            <button type="button" id="bj-bet-minus" class="btn-outline">-10</button>
+            <input type="number" id="bj-bet-input" value="100" min="1">
+            <button type="button" id="bj-bet-plus" class="btn-outline">+10</button>
+          </div>
+          <small class="bj-controls-help">Saldo e ganhos serão atualizados automaticamente.</small>
+        </div>
+
+        <!-- Ações -->
+        <div class="bj-buttons">
+          <button id="bjStartBtn" class="bj-btn">START</button>
+          <button id="bjHitBtn" class="bj-btn" disabled>HIT</button>
+          <button id="bjStandBtn" class="bj-btn bj-stand" disabled>STAND</button>
+          <button id="bjDoubleBtn" class="bj-btn bj-double" disabled>DOUBLE</button>
+        </div>
+
+        <!-- Mensagem/Resultado -->
+        <div class="bj-info" id="bj-result"></div>
+
+        <!-- Rodapé de aposta -->
+        <div class="bj-bet-display">
+          Aposta Atual: R$ <span id="bj-bet-display-2">100</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--* === Modal Jogo Aviator === -->
+  <div id="aviatorModal" class="modal">
+    <div class="modal-aviator">
+      <header class="modal-aviator-header">
+        <h1 class="modal-aviator-header-title">Aviator</h1>
+        <div>
+          <span>Saldo: R$ </span><b><span id="aviator-saldo-valor"><b>1000,00</b></span></b>
+          <div>
+            <span class="aviator-close" onclick="closeAviatorModal()">&times;
+            </span>
+          </div>
+        </div>
+      </header>
+
+      <div class="modal-aviator-body">
+        <section id="aviator-historico">
+          <h2>Histórico de Multiplicadores</h2>
+          <div id="aviator-multiplicadores"></div>
+        </section>
+
+        <main class="aviator-jogo">
+          <div class="aviator-grafico-container">
+            <canvas id="aviator-grafico" width="600" height="300"></canvas>
+            <img id="aviator-aviao" src="img/jogos/jogo-aviator-aviao.png" alt="Avião" />
+
+            <div class="aviator-multiplicador-wrapper">
+              <div id="aviator-multiplicador-fundo"></div>
+              <div id="aviator-multiplicador-atual">1.00x</div>
+            </div>
+
+            <div id="aviator-resultado-final"></div>
+          </div>
+
+          <div class="aviator-painel-controle">
+            <div class="aviator-painel-apostas1">
+              <div class="aviator-aposta">
+                <h3>Aposta 1</h3>
+                <div class="aviator-controle-aposta">
+                  <button class="aviator-ajuste-valor" data-id="1" data-delta="-1">−</button>
+                  <input type="number" id="aviator-valor1" value="1.00" min="1" max="1000" step="0.01" />
+                  <button class="aviator-ajuste-valor" data-id="1" data-delta="1">+</button>
+                </div>
+                <div class="aviator-valores-rapidos">
+                  <button class="aviator-prevalor" data-id="1" data-valor="10.00">10</button>
+                  <button class="aviator-prevalor" data-id="1" data-valor="20.00">20</button>
+                  <button class="aviator-prevalor" data-id="1" data-valor="50.00">50</button>
+                  <button class="aviator-prevalor" data-id="1" data-valor="100.00">100</button>
+                </div>
+                <label for="aviator-autoRetirada1">Auto-retirada:</label>
+                <input type="number" id="aviator-autoRetirada1" placeholder="Ex: 2.5" step="0.1" min="1" />
+                <button class="aviator-aposta-btn" data-id="1">Apostar</button>
+              </div>
+            </div>
+
+            <div class="aviator-painel-apostas2">
+              <div class="aviator-aposta">
+                <h3>Aposta 2</h3>
+                <div class="aviator-controle-aposta">
+                  <button class="aviator-ajuste-valor" data-id="2" data-delta="-1">−</button>
+                  <input type="number" id="aviator-valor2" value="1.00" min="1" max="1000" step="0.01" />
+                  <button class="aviator-ajuste-valor" data-id="2" data-delta="1">+</button>
+                </div>
+                <div class="aviator-valores-rapidos">
+                  <button class="aviator-prevalor" data-id="2" data-valor="10.00">10</button>
+                  <button class="aviator-prevalor" data-id="2" data-valor="20.00">20</button>
+                  <button class="aviator-prevalor" data-id="2" data-valor="50.00">50</button>
+                  <button class="aviator-prevalor" data-id="2" data-valor="100.00">100</button>
+
+                </div>
+                <label for="aviator-autoRetirada2">Auto-retirada:</label>
+                <input type="number" class="aviator-autoRetirada-input" id="aviator-autoRetirada2" placeholder="Ex: 3.0"
+                  step="0.1" min="1" />
+                <button class="aviator-aposta-btn" data-id="2">Apostar</button>
+              </div>
+            </div>
+            <button id="aviator-iniciar" disabled>Iniciar Rodada</button>
+          </div>
+          <div class="aviator-ong-section" id="ongModalAviator">
+            <button class="btn-primary" id="aviator-choose-ong-btn" style="margin-bottom:1.2rem;">Escolher
+              ONG</button>
+            <!-- Card da ONG selecionada -->
+            <div id="selectedOngCardAviator" class="selected-ong-card-aviator"
+              style="margin-bottom:1rem; display:none; background:var(--gray-800);">
+              <span class="ong-tag-aviator" id="selectedOngTagAviator">Escolha sua ONG</span>
+              <h3 class="ong-name-aviator" id="selectedOngNameAviator">Escolha sua ONG</h3>
+            </div>
+          </div>
+
+          <!-- Modal de Seleção de ONG (sobreposto, igual à segunda foto) -->
+          <div id="aviatorOngModal" class="modal">
+            <div class="modal-ong-content-aviator">
+              <span class="close" onclick="closeAviatorOngModal()">&times;</span>
+              <h2>Escolha sua ONG</h2>
+              <p>Selecione a ONG que receberá 50% das suas apostas</p>
+              <div class="ongs-list-aviator">
+                <div class="ong-card-aviator" data-ong="1" onclick="selectOngForAviator(1)">
+                  <img src="" alt="Instituto Ayrton Senna">
+                  <div class="ong-info-aviator">
+                    <span class="ong-tag-aviator">Educação</span>
+                    <h3 class="ong-name-aviator">Instituto Ayrton Senna</h3>
+                    <p>Educação de qualidade para crianças e jovens em situação de
+                      vulnerabilidade.</p>
+                    <span class="ong-location-aviator">São Paulo, SP</span>
+                    <span class="ong-supporters-aviator">2.847 apoiadores</span>
+                    <span class="ong-impact-aviator">45.000 crianças atendidas</span>
+                  </div>
+                </div>
+                <div class="ong-card-aviator" data-ong="2" onclick="selectOngForAviator(2)">
+                  <img src="" alt="Ação da Cidadania">
+                  <div class="ong-info-aviator">
+                    <span class="ong-tag-aviator">Combate à Fome</span>
+                    <h3 class="ong-name-aviator">Ação da Cidadania</h3>
+                    <p>Combate à fome e à pobreza, promovendo inclusão social.</p>
+                    <span class="ong-location-aviator">Rio de Janeiro, RJ</span>
+                    <span class="ong-supporters-aviator">1.653 apoiadores</span>
+                    <span class="ong-impact-aviator">12.000 famílias atendidas</span>
+                  </div>
+                </div>
+                <div class="ong-card-aviator" data-ong="3" onclick="selectOngForAviator(3)">
+                  <img src="" alt="WWF Brasil">
+                  <div class="ong-info-aviator">
+                    <span class="ong-tag-aviator">Meio Ambiente</span>
+                    <h3 class="ong-name-aviator">WWF Brasil</h3>
+                    <p>Conservação da natureza e promoção do uso sustentável.</p>
+                    <span class="ong-location-aviator">Brasília, DF</span>
+                    <span class="ong-supporters-aviator">3.921 apoiadores</span>
+                    <span class="ong-impact-aviator">2.500 hectares protegidos</span>
+                  </div>
+                </div>
+                <div class="ong-card-aviator" data-ong="4" onclick="selectOngForAviator(4)">
+                  <img src="" alt="SOS Mata Atlântica">
+                  <div class="ong-info-aviator">
+                    <span class="ong-tag-aviator">Meio Ambiente</span>
+                    <h3 class="ong-name-aviator">SOS Mata Atlântica</h3>
+                    <p>Proteção e recuperação da Mata Atlântica brasileira.</p>
+                    <span class="ong-location-aviator">São Paulo, SP</span>
+                    <span class="ong-supporters-aviator">2.156 apoiadores</span>
+                    <span class="ong-impact-aviator">2.156 árvores plantadas</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+
+
   <div class="content">
     <!--* ====== Sidebar menu lateral ====== -->
     <aside class="casino-sidebar" id="casino-sidebar">
       <div class="casino-sidebar-menu">
         <div class="casino-sidebar-menu-item" onclick="toggleSubmenu()">
-          <h2>Cassino</h2>
+          <div class="casino-sidebar-menu-item-ranking">
+            <img width="26" height="26" src="https://img.icons8.com/ios-filled/50/EBEBEB/cards.png" alt="cards"/>
+            <h2>Cassino</h2>
+          </div>
           <svg id="casino-sidebar-arrow-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
             class="lucide lucide-chevron-up-icon lucide-chevron-up">
             <path d="m18 15-6-6-6 6" />
           </svg>
-
         </div>
+
         <div class="casino-sidebar-submenu" id="casino-sidebar-submenu">
           <div class="casino-sidebar-submenu-item">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -332,9 +620,11 @@
             <h3>Cash</h3>
           </div>
           <div class="casino-sidebar-submenu-item">
+            <img width="25" height="25" src="https://img.icons8.com/external-glyph-andi-nur-abdillah/64/d1d5db/external-Roulette-gaming-(glyph)-glyph-andi-nur-abdillah.png" alt="external-Roulette-gaming-(glyph)-glyph-andi-nur-abdillah"/>
             <h3>Roleta</h3>
           </div>
           <div class="casino-sidebar-submenu-item">
+            <img width="25" height="25" src="https://img.icons8.com/ios/50/EBEBEB/slot-machine.png" alt="slot-machine"/>
             <h3>Slots</h3>
           </div>
         </div>
@@ -373,7 +663,7 @@
             <div class="casino-game-thumb">
               <img src="img/jogos/jogos_roleta_roleta.png" alt="Imagem do jogo Roleta">
               <div class="casino-overlay">
-                <button class="btn-primary" id="game-play-roulette">Jogar</button>
+                <button class="btn-primary" id="game-play-roulette" onclick="playRoulette()">Jogar</button>
               </div>
             </div>
             <div class="casino-meta">
@@ -381,8 +671,6 @@
               <p>Roleta</p>
             </div>
           </div>
-
-
 
           <!-- Jogo 2 Tigrinho -->
           <div class="casino-game-card">
@@ -403,7 +691,7 @@
             <div class="casino-game-thumb">
               <img src="img/jogos/jogos_cartas_blackjack.jpg" alt="Imagem do jogo Blackjack">
               <div class="casino-overlay">
-                <button class="btn-primary" id="game-play-blackjack">Jogar</button>
+                <button class="btn-primary" id="game-play-blackjack" onclick="playBlackjack()">Jogar</button>
               </div>
             </div>
             <div class="casino-meta">
@@ -431,7 +719,7 @@
             <div class="casino-game-thumb">
               <img src="img/jogos/jogos_cash_mines.png" alt="Imagem do jogo Campo Minado">
               <div class="casino-overlay">
-                <button class="btn-primary" id="game-play-mines">Jogar</button>
+                <button class="btn-primary" id="game-play-mines" onclick="playMines()">Jogar</button>
               </div>
             </div>
             <div class="casino-meta">
@@ -492,7 +780,7 @@
             <div class="casino-game-thumb">
               <img src="img/jogos/jogos_cash_aviator.jpg" alt="Imagem do jogo Aviator">
               <div class="casino-overlay">
-                <button class="btn-primary" id="game-play-aviator">Jogar</button>
+                <button class="btn-primary" id="game-play-aviator" onclick="playAviator()">Jogar</button>
               </div>
             </div>
             <div class="casino-meta">
@@ -544,7 +832,7 @@
             <div class="casino-game-thumb">
               <img src="img/jogos/jogos_roleta_roleta.png" alt="Imagem do jogo Roleta">
               <div class="casino-overlay">
-                <button class="btn-primary" id="game-play-roulette">Jogar</button>
+                <button class="btn-primary" id="game-play-roulette" onclick="playRoulette()">Jogar</button>
               </div>
             </div>
             <div class="casino-meta">
@@ -668,22 +956,7 @@
         </section>
     </main>
   </div>
-
-  <script>
-    function toggleSubmenu() {
-      const submenu = document.getElementById("sidebar-submenu");
-      submenu.classList.toggle("hidden");
-
-      const arrowDown = document.getElementById("sidebar-arrow-down");
-      const arrowUp = document.getElementById("sidebar-arrow-up");
-
-      if (submenu.classList.contains("hidden")) {
-        arrowDown.style.transform = "rotate(0deg)";
-      } else {
-        arrowDown.style.transform = "rotate(180deg)";
-      }
-    }
-  </script>
   <script src="js/script.js"></script>
   <script src="js/casino.js"></script>
+   <script src="js/aviator.js"></script>
 </body>

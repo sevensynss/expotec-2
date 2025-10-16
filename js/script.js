@@ -141,10 +141,11 @@ function updateNavbarAuth() {
   const loginBtn = document.getElementById('Loginbtn');
   const registerBtn = document.getElementById('Registerbtn');
   const logoutBtn = document.getElementById('logout');
-
+  const balanceInfo = document.getElementById('balance-info');
   if (loginBtn) loginBtn.style.display = isLogged ? 'none' : 'inline-block';
   if (registerBtn) registerBtn.style.display = isLogged ? 'none' : 'inline-flex';
   if (logoutBtn) logoutBtn.classList[isLogged ? 'remove' : 'add']('invisible');
+  if (balanceInfo) balanceInfo.classList[isLogged ? 'remove' : 'add']('invisible');
 }
 
 // Botão de logout
