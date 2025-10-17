@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - Doe e Ganhe</title>
+    <!-- Links para os arquivos CSS corretos -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
+</head>
+<body class="about-us-dark">
+    <!-- navbar -->
+  <div class="navbar-bg">
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-inner" role="navigation" aria-label="Navegação principal">
+          <!-- paginas -->
+          <div class="nav-container">
+            <!-- logo "Doe & Ganhe" -->
+            <div class="nav-logo">
+
+              <h1 id="home" onclick="window.location.href='index.html'">Doe e Ganhe</h1>
+            </div>
+            <!-- links/paginas cassino e ongs -->
+            <div class="nav-links">
+              <a class="link-casino" href="casino.html">Cassino</a>
+              <a class="link-ngos" href="ngos.html">ONGs</a>
+              <a class="about-us-link-about" href="about-us.html">Sobre Nós</a>
+            </div>
+          </div>
+          <div class="nav-container">
+            <!--* Botoes de acoes da navbar -->
+            <div class="nav-actions">
+              <!-- Buscar -->
+              <button class="nav-btn-icon" title="buscar" aria-label="buscar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-search-icon lucide-search">
+                  <path d="m21 21-4.34-4.34" />
+                  <circle cx="11" cy="11" r="8" />
+                </svg>
+              </button>
+              <!-- Ofertas -->
+              <button class="nav-btn-icon" title="Ofertas" aria-label="Ofertas">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-gift-icon lucide-gift">
+                  <rect x="3" y="8" width="18" height="4" rx="1" />
+                  <path d="M12 8v13" />
+                  <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" />
+                  <path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" />
+                </svg>
+              </button>
+              <!-- Configurações -->
+              <button class="nav-btn-icon" title="Configurações" aria-label="Configurações">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-settings-icon lucide-settings">
+                  <path
+                    d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </button>
+              <div class="nav-btn-theme">
+                <!-- Botão de tema -->
+                <div class="theme-toggle" id="themeToggle" title="Alternar tema">
+                  <div class="circle">
+                    <!-- Lua -->
+                    <svg class="icon moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                    </svg>
+                    <!-- Sol -->
+                    <svg class="icon sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="5" />
+                      <line x1="12" y1="1" x2="12" y2="3" />
+                      <line x1="12" y1="21" x2="12" y2="23" />
+                      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                      <line x1="1" y1="12" x2="3" y2="12" />
+                      <line x1="21" y1="12" x2="23" y2="12" />
+                      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+    <main class="about-us-main-content">
+        <div class="about-us-container">
+            <!-- Hero Section -->
+            <section class="about-us-hero-section">
+                <div class="about-us-hero-background">
+                    <img src="img/photo-1591522810850-58128c5fb089.jpeg" alt="" class="about-us-hero-img">
+                    <div class="about-us-hero-overlay"></div>
+                </div>
+                <div class="about-us-hero-content">
+                    <div class="about-us-hero-text">
+                        <span class="about-us-badge badge-orange">Nossa História</span>
+                        <h1 class="about-us-hero-title">
+                            <span class="about-us-gradient-text">Transformando</span>
+                            <span class="about-us-hero-subtitle">Entretenimento em Impacto Social</span>
+                        </h1>
+                        <p class="about-us-hero-description">
+                            Nascemos da crença de que é possível unir diversão e responsabilidade social. Somos o primeiro cassino online do Brasil onde cada aposta contribui automaticamente para causas sociais, sem custo adicional para você.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Achievements Grid -->
+            <section class="about-us-achievements-grid">
+                <div class="about-us-achievement-card">
+                    <div class="about-us-achievement-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    </div>
+                    <div class="about-us-achievement-value">R$ 2,8M+</div>
+                    <div class="about-us-achievement-label">Doados para ONGs</div>
+                </div>
+                <div class="about-us-achievement-card">
+                    <div class="about-us-achievement-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <div class="about-us-achievement-value">100K+</div>
+                    <div class="about-us-achievement-label">Jogadores Ativos</div>
+                </div>
+                <div class="about-us-achievement-card">
+                    <div class="about-us-achievement-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </div>
+                    <div class="about-us-achievement-value">50+</div>
+                    <div class="about-us-achievement-label">ONGs Parceiras</div>
+                </div>
+                <div class="about-us-achievement-card">
+                    <div class="about-us-achievement-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                    </div>
+                    <div class="about-us-achievement-value">1M+</div>
+                    <div class="about-us-achievement-label">Vidas Impactadas</div>
+                </div>
+            </section>
+
+            <!-- Nossa Missão -->
+            <section class="about-us-mission-section">
+                <div class="about-us-mission-content">
+                    <span class="about-us-badge badge-purple">Nossa Missão</span>
+                    <h2 class="about-us-section-title">Diversão que <span class="about-us-gradient-text">Faz a Diferença</span></h2>
+                    <p class="about-us-mission-text">Nossa missão é revolucionar o mercado de entretenimento online no Brasil, provando que é possível oferecer diversão de qualidade enquanto geramos impacto social positivo e mensurável.</p>
+                </div>
+                <div class="about-us-mission-image">
+                    <div class="about-us-image-glow"></div>
+                    <img src="https://images.unsplash.com/photo-1690264421892-46e3af5c3455?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWFtJTIwY29sbGFib3JhdGlvbiUyMG9mZmljZXxlbnwxfHx8fDE3NjA2MTQ3Nzd8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Nossa Equipe">
+                </div>
+            </section>
+
+            <!-- Nossa Equipe -->
+            <section class="about-us-team-section">
+                <div class="about-us-section-header">
+                    <span class="about-us-badge badge-blue">Nossa Equipe</span>
+                    <h2 class="about-us-section-title">Conheça Quem <span class="about-us-gradient-text">Faz Acontecer</span></h2>
+                </div>
+                <div class="about-us-team-grid">
+                                    <!-- Breno Leça -->
+                                    <div class="team-member-card">
+                                        <div class="team-member-photo">
+                                            <img src="img/equipe/leça.png" alt="Foto de Breno Leça">
+                                        </div>
+                                        <div class="team-member-info">
+                                            <span class="team-member-role">Desenvolvedor Front-end</span>
+                                            <h3 class="team-member-name">Breno Leça</h3>
+                                            <p class="team-member-description">Especialista em dar vida aos jogos e interfaces, focado na performance e interatividade da plataforma.</p>
+                                        </div>
+                                    </div>
+                                    <!-- Gabrielle Malfatti -->
+                                    <div class="team-member-card">
+                                        <div class="team-member-photo">
+                                            <img src="img/equipe/gabi-foto.jpg" alt="Foto de Gabrielle Malfatti">
+                                        </div>
+                                        <div class="team-member-info">
+                                            <span class="team-member-role">Designer</span>
+                                            <h3 class="team-member-name">Gabrielle Malfatti</h3>
+                                            <p class="team-member-description">Criadora da identidade visual e da experiência do usuário, garantindo uma navegação intuitiva e agradável.</p>
+                                        </div>
+                                    </div>
+                                    <!-- Giovanna Rangel -->
+                                    <div class="team-member-card">
+                                        <div class="team-member-photo">
+                                            <img src="img/equipe/gi-foto.jpg" alt="Foto de Giovanna Rangel">
+                                        </div>
+                                        <div class="team-member-info">
+                                            <span class="team-member-role">Gerente de Projetos</span>
+                                            <h3 class="team-member-name">Giovanna Rangel</h3>
+                                            <p class="team-member-description">Responsável pelo planejamento, ideias, parcerias com ONGs e gestão do projeto.</p>
+                                        </div>
+                                    </div>
+                                    <!-- Nicole Macedo -->
+                                    <div class="team-member-card">
+                                        <div class="team-member-photo">
+                                            <img src="img/equipe/nick-foto.jpg" alt="Foto de Nicole Macedo">
+                                        </div>
+                                        <div class="team-member-info">
+                                            <span class="team-member-role">Desenvolvedora Full-Stack</span>
+                                            <h3 class="team-member-name">Nicole Macedo</h3>
+                                            <p class="team-member-description">Arquiteta da plataforma, responsável pela infraestrutura e pela integração entre o front-end e o back-end. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                </div>
+            </section>
+
+            <!-- CTA Final -->
+            <section class="about-us-cta-section">
+                <div class="about-us-cta-background"></div>
+                <div class="about-us-cta-content">
+                    <h2 class="about-us-cta-title">Faça Parte desta Revolução</h2>
+                    <p class="about-us-cta-description">Junte-se a milhares de jogadores que já estão transformando entretenimento em impacto social real. Comece hoje mesmo!</p>
+                    <div class="about-us-cta-buttons">
+                        <button class="btn-primary btn-lg" id="cta-register-btn onclick="window.location.href='index.html'">Criar Conta Grátis</button>
+                        <a href="ngos.html" class="btn-secundary btn-lg" style="text-decoration: none;">Conhecer ONGs</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- RODAPÉ PADRÃO DO SITE -->
+    <div class="container-footer">
+        <footer>
+            <div class="container footer-grid">
+                <!-- Conteúdo do rodapé aqui... -->
+            </div>
+            <div class="container footer-media">
+                <p>&copy; 2025 Doe e Ganhe. Todos os direitos reservados.</p>
+                <div class="footer-social-media">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

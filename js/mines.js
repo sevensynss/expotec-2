@@ -220,3 +220,10 @@ window.updateMinesOngCard = function() {
       document.getElementById('mines-bet-input').disabled = false;
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Seleciona todos os botões que abrem o campo minado
+  document.querySelectorAll('#game-play-mines').forEach(button => {
+    button.addEventListener('click', playMines);
+  });
+});

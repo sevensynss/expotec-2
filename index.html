@@ -26,6 +26,7 @@
             <div class="nav-links">
               <a class="link-casino" href="casino.html">Cassino</a>
               <a class="link-ngos" href="ngos.html">ONGs</a>
+              <a class="link-about" href="about-us.html">Sobre Nós</a>
             </div>
           </div>
           <div class="nav-container">
@@ -125,10 +126,10 @@
       <h2>Login</h2>
       <form id="form-login">
         <label for="username">Usuário</label>
-        <input type="text" id="username-login" name="username" required>
+        <input type="text" id="username-login" name="username" autocomplete="off" required>
 
         <label for="password">Senha</label>
-        <input type="password" id="password-login" name="password" required>
+        <input type="password" id="password-login" name="password" autocomplete="off" required>
          <div id="mensagem-login"></div>
         <button type="submit">Entrar</button>
       </form>
@@ -142,22 +143,22 @@
       <h2>Registre-se</h2>
       <form id="form-registro">
         <label for="name">Nome completo</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" autocomplete="off" required>
 
         <label for="cpf">CPF</label>
-        <input type="text" id="cpf" name="cpf" required>
+        <input type="text" id="cpf" name="cpf" autocomplete="off" required>
 
         <label for="birth-date">Data de nascimento</label>
-        <input type="date" name="birth-date" id="birth-date" placeholder="DD/MM/AAAA" required>
+        <input type="date" name="birth-date" id="birth-date" placeholder="DD/MM/AAAA" autocomplete="off" required>
 
         <label for="username-register">Usuário</label>
-        <input type="text" id="username-register" name="username-register" required>
+        <input type="text" id="username-register" name="username-register" autocomplete="off" required>
 
         <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" autocomplete="off" required>
 
         <label for="password-register">Senha</label>
-        <input type="password" id="password-register" name="password-register" required>
+        <input type="password" id="password-register" name="password-register" autocomplete="off" required>
 
         <button type="submit">Registrar-se</button>
         <div id="mensagem-registro"></div>
@@ -168,20 +169,20 @@
   <!--! ===== CONTEUDO PRINCIPAL ===== -->
   <main>
     <!--* ===== BANNER ===== -->
-    <section class="banner">
+    <section class="banner-full">
       <img src="img/doe_e_ganhe_banner.jpg" alt="Banner do Doe & Ganhe" />
-      <div class="banner-inner">
-        <div class="banner-text-inner">
+      <div class="banner-full-inner">
+        <div class="banner-full-text-inner">
           <h1>
-            <span class="banner-text-orange">Ganhe</span> e
-            <span class="banner-text-purple">Doe</span> ao Mesmo Tempo!
+            <span class="banner-full-text-orange">Ganhe</span> e
+            <span class="banner-full-text-purple">Doe</span> ao Mesmo Tempo!
           </h1>
           <p>
             A cada aposta, uma porcentagem é destinada à ONG de sua escolha. Divirta-se no cassino e faça a diferença na
             vida de quem mais precisa!
           </p>
         </div>
-        <button class="btn-primary">JOGUE AGORA</button>
+        <button class="btn-primary" onclick="location.href='casino.html'">JOGUE AGORA</button>
       </div>
     </section>
 
@@ -193,7 +194,7 @@
             <h2>Ofertas Especiais</h2>
             <p>As melhores ofertas diárias</p>
           </div>
-          <a href="#" class="link-offers">Ver todas</a>
+          <a href="#" class="link-see-more">Ver todas</a>
         </div>
         <div class="grid offers-grid">
           <div class="card">
@@ -230,7 +231,7 @@
           </div>
 
           <div class="card">
-            <img src="https://placehold.co/600x300" alt="">
+            <img src="img/ofertas/ofertas-cashback-semanal.png" alt="">
             <div class="card-body">
               <h3>Cashback Semanal</h3>
               <p>Até 10% de cashback em suas perdas no cassino</p>
@@ -249,7 +250,7 @@
         <div class="section-head">
           <div class="section-title">
             <h2>Nossos Jogos</h2>
-            <p>Os mais jogados essas semana</p>
+            <p>Os mais jogados dessa semana</p>
           </div>
           <div class="section-btn-filter">
             <button class="btn-outline">Todos</button>
@@ -357,62 +358,131 @@
           <div class="donation-inner">
             <h2>Jogue e Ajude uma Causa</h2>
             <p>A cada aposta, 50% do valor é destinado à ONG de sua escolha. Você se diverte e ajuda quem precisa!</p>
-            <button class="btn-primary">Escolher uma ONG</button>
+            <button class="btn-primary" onclick="location.href='ngos.html'">Escolher uma ONG</button>
           </div>
         </div>
       </div>
     </section>
 
-    <!--* ===== ONGS ===== -->
+   <!--* ===== ONGS ===== -->
     <section class="section">
       <div class="container">
         <div class="container-ongs">
-          <h2>ONGs Parceiras</h2>
-          <p>Organizações que fazem a diferença</p>
-        </div>
-      </div>
-      <div class="grid ongs-grid">
-        <div class="card">
-          <img src="https://placehold.co/600x300" alt="">
-          <div class="card-body">
-            <h3>Educação para Todos</h3>
-            <p>Leva educação de qualidade para comunidades carentes</p>
-            <div class="progress-outer">
-              <div class="progress-inner progress-inner-1"></div>
+          <div class="container-ongs-head">
+            <div class="container-ongs-head-text">
+              <h2>ONGs Parceiras</h2>
+              <p>Organizações que fazem a diferença</p>
             </div>
-            <p>R$75.000 arrecadados de R$100.000</p>
-            <button class="btn-full-width">Doar Agora</button>
-          </div>
-        </div>
+            <div class="container-ongs-head-more">
+              <a href="ngos.html" class="link-see-more container-ongs-link-see-more">Ver Todas as ONGs</a>
+            </div>
 
-        <div class="card">
-          <img src="https://placehold.co/600x300" alt="">
-          <div class="card-body">
-            <h3>Patas Felizes</h3>
-            <p>Resgate e cuidado de animais abandonados</p>
-            <div class="progress-outer">
-              <div class="progress-inner progress-inner-2"></div>
-            </div>
-            <p>R$40.000 arrecadados de R$100.000</p>
-            <button class="btn-full-width">Doar Agora</button>
-          </div>
-        </div>
 
-        <div class="card">
-          <img src="https://placehold.co/600x300" alt="">
-          <div class="card-body">
-            <h3>Natureza Viva</h3>
-            <p>Preservação de áreas ambientais ameaçadas</p>
-            <div class="progress-outer">
-              <div class="progress-inner progress-inner-3"></div>
-            </div>
-            <p>R$90.000 arrecadados de R$100.000</p>
-            <button class="btn-full-width">Doar Agora</button>
           </div>
         </div>
-      </div>
+        <div class="grid ongs-grid">
+          <div class="card ngos-card">
+            <img src="img/ongs/ongs-crianca-esperanca.png" alt="">
+            <div class="card-body ngos-card-body">
+              <div class="ngos-card-body-cima">
+                <div class="ngos-ong-tag" data-category="direitos-humanos">Direitos Humanos</div>
+                <h3>Criança Esperança</h3>
+                <p>Campanha nacional em prol dos direitos da criança e do adolescente.</p>
+              </div>
+              <div class="ngos-card-body-baixo">
+                <div class="ngos-ong-location">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  <p>Nacional</p>
+                </div>
+                <div class="progress-outer">
+                  <div class="progress-inner progress-inner-1"></div>
+                </div>
+                <p>R$75.000 arrecadados de R$100.000</p>
+                <button class="btn-full-width">Doar Agora</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card ngos-card">
+            <img src="img/ongs/ongs-greenpeace.png" alt="Greenpeace">
+            <div class="card-body ngos-card-body">
+              <div class="ngos-card-body-cima">
+                <div class="ngos-ong-tag" data-category="meio-ambiente">Meio Ambiente</div>
+                <h3>Greenpeace</h3>
+                <p>Proteção do meio ambiente, ações diretas e campanhas por políticas públicas.</p>
+              </div>
+              <div class="ngos-card-body-baixo">
+                <div class="ngos-ong-location">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  <p>Internacional</p>
+                </div>
+                <div class="progress-outer">
+                  <div class="progress-inner progress-inner-2"></div>
+                </div>
+                <p>R$40.000 arrecadados de R$100.000</p>
+                <button class="btn-full-width">Doar Agora</button>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="card ngos-card">
+            <img src="img/ongs/ongs-instituto-ayrton-senna.png" alt="Instituto Ayrton Senna">
+            <div class="card-body ngos-card-body">
+              <div class="ngos-card-body-cima">
+                <div class="ngos-ong-tag" data-category="educacao">Educação</div>
+                <h3>Instituto Ayrton Senna</h3>
+                <p>Cria oportunidades de desenvolvimento humano a crianças e jovens por meio da educação.</p>
+              </div>
+              <div class="ngos-card-body-baixo">
+                <div class="ngos-ong-location">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  <p>São Paulo</p>
+                </div>
+                <div class="progress-outer">
+                  <div class="progress-inner progress-inner-3"></div>
+                </div>
+                <p>R$90.000 arrecadados de R$100.000</p>
+                <button class="btn-full-width">Doar Agora</button>
+              </div>
+            </div>
+          </div>
 
     </section>
+
+    <!--* Total Arrecadado  -->
+    <div class="container">
+      <div class="ngos-total-raised-header">
+        <h2><span class="ngos-total-raised-header-icon">💖</span> Total Arrecadado</h2>
+        <p>Veja o impacto que estamos fazendo juntos</p>
+      </div>
+      <div class="grid ngos-total-raised-grid">
+        <div class="card ngos-total-raised">
+          <img src="img/ongs/ongs-doe-e-ganhe.png" alt="">
+          <div class="card-body ngos-total-raised-body">
+            <h3>Total Arrecadado Expotec</h3>
+            <p>Tudo que conseguimos arrecadar para as ONGs hoje nessa Expotec de 2025</p>
+            <div class="progress-outer">
+              <div class="ngos-total-raised-progress-inner"></div>
+            </div>
+            <p>R$0 arrecadados de R$1.000</p>
+            <button class="btn-full-width" onclick="location.href='ngos.html'">Doar Agora</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!--* ===== ESTATISTICAS ===== -->
     <section class="section">
@@ -421,7 +491,7 @@
           <h2>Estatísticas ao Vivo</h2>
           <p>Acompanhe o impacto social em tempo real</p>
         </div>
-         <div class="stats-grid">
+        <div class="stats-grid">
           <!-- Jogadores online -->
           <div class="stats-card-odd">
             <div class="stats-card-inner">
@@ -497,98 +567,107 @@
             </div>
           </div>
         </div>
-      </div>
-      </div>
-      <!-- Ranking Wins -->
-      <div class="ranking-wins">
-        <div class="wins-header">
-          <div class="wins-title">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-              class="lucide lucide-trophy-icon lucide-trophy">
-              <path d="M10 14.66v1.626a2 2 0 0 1-.976 1.696A5 5 0 0 0 7 21.978" />
-              <path d="M14 14.66v1.626a2 2 0 0 0 .976 1.696A5 5 0 0 1 17 21.978" />
-              <path d="M18 9h1.5a1 1 0 0 0 0-5H18" />
-              <path d="M4 22h16" />
-              <path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z" />
-              <path d="M6 9H4.5a1 1 0 0 1 0-5H6" />
-            </svg>
-            <h2>Ranking de Vitórias</h2>
+        <!-- Ranking Wins -->
+        <div class="ranking-wins">
+          <div class="wins-header">
+            <div class="wins-title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-trophy-icon lucide-trophy">
+                <path d="M10 14.66v1.626a2 2 0 0 1-.976 1.696A5 5 0 0 0 7 21.978" />
+                <path d="M14 14.66v1.626a2 2 0 0 0 .976 1.696A5 5 0 0 1 17 21.978" />
+                <path d="M18 9h1.5a1 1 0 0 0 0-5H18" />
+                <path d="M4 22h16" />
+                <path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z" />
+                <path d="M6 9H4.5a1 1 0 0 1 0-5H6" />
+              </svg>
+              <h2>Ranking de Vitórias</h2>
+
+
+            </div>
+            <button class="wins-live-button">
+              <div class="wins-pulse-effect"></div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-radio-icon lucide-radio">
+                <path d="M16.247 7.761a6 6 0 0 1 0 8.478" />
+                <path d="M19.075 4.933a10 10 0 0 1 0 14.134" />
+                <path d="M4.925 19.067a10 10 0 0 1 0-14.134" />
+                <path d="M7.753 16.239a6 6 0 0 1 0-8.478" />
+                <circle cx="12" cy="12" r="2" />
+              </svg>
+              <span>AO VIVO</span>
+            </button>
           </div>
-          <button class="wins-live-button">
-            <div class="wins-pulse-effect"></div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
-              class="lucide lucide-radio-icon lucide-radio">
-              <path d="M16.247 7.761a6 6 0 0 1 0 8.478" />
-              <path d="M19.075 4.933a10 10 0 0 1 0 14.134" />
-              <path d="M4.925 19.067a10 10 0 0 1 0-14.134" />
-              <path d="M7.753 16.239a6 6 0 0 1 0-8.478" />
-              <circle cx="12" cy="12" r="2" />
-            </svg>
-            <span>AO VIVO</span>
-          </button>
+
+          <div class="wins-list" id="wins-list">
+            <div class="wins-item">
+              <div class="wins-user">
+                <div class="wins-user-avatar">86</div>
+                <div class="wins-user-info">
+                  <div class="wins-username">Jogador86</div>
+                  <div class="wins-time-ago">Tigrinho • 3h atrás</div>
+                </div>
+              </div>
+              <div class="wins-amount">R$ 7.550</div>
+            </div>
+
+
+
+            <div class="wins-item">
+              <div class="wins-user">
+                <div class="wins-user-avatar">26</div>
+                <div class="wins-user-info">
+                  <div class="wins-username">Jogador526</div>
+                  <div class="wins-time-ago">Roleta • 16h atrás</div>
+                </div>
+              </div>
+              <div class="wins-amount">R$ 4.288</div>
+            </div>
+
+
+
+            <div class="wins-item">
+              <div class="wins-user">
+                <div class="wins-user-avatar">64</div>
+                <div class="wins-user-info">
+                  <div class="wins-username">Jogador264</div>
+                  <div class="wins-time-ago">Aviador • 22h atrás</div>
+                </div>
+              </div>
+              <div class="wins-amount">R$ 2.163</div>
+            </div>
+
+
+
+            <div class="wins-item">
+              <div class="wins-user">
+                <div class="wins-user-avatar">23</div>
+                <div class="wins-user-info">
+                  <div class="wins-username">Jogador923</div>
+                  <div class="wins-time-ago">Plinko • 10h atrás</div>
+                </div>
+              </div>
+              <div class="wins-amount">R$ 909</div>
+            </div>
+
+            <div class="wins-item">
+              <div class="wins-user">
+                <div class="wins-user-avatar">69</div>
+                <div class="wins-user-info">
+                  <div class="wins-username">Jogador869</div>
+                  <div class="wins-time-ago">Blackjack • 5h atrás</div>
+                </div>
+
+
+
+              </div>
+              <div class="wins-amount">R$ 763</div>
+            </div>
+
+          </div>
         </div>
-
-        <div class="wins-list" id="wins-list">
-          <div class="wins-item">
-            <div class="wins-user">
-              <div class="wins-user-avatar">86</div>
-              <div class="wins-user-info">
-                <div class="wins-username">Jogador86</div>
-                <div class="wins-time-ago">Tigrinho • 3h atrás</div>
-              </div>
-            </div>
-            <div class="wins-amount">R$ 7.550</div>
-          </div>
-
-          <div class="wins-item">
-            <div class="wins-user">
-              <div class="wins-user-avatar">26</div>
-              <div class="wins-user-info">
-                <div class="wins-username">Jogador526</div>
-                <div class="wins-time-ago">Roleta • 16h atrás</div>
-              </div>
-            </div>
-            <div class="wins-amount">R$ 4.288</div>
-          </div>
-
-          <div class="wins-item">
-            <div class="wins-user">
-              <div class="wins-user-avatar">64</div>
-              <div class="wins-user-info">
-                <div class="wins-username">Jogador264</div>
-                <div class="wins-time-ago">Aviador • 22h atrás</div>
-              </div>
-            </div>
-            <div class="wins-amount">R$ 2.163</div>
-          </div>
-
-          <div class="wins-item">
-            <div class="wins-user">
-              <div class="wins-user-avatar">23</div>
-              <div class="wins-user-info">
-                <div class="wins-username">Jogador923</div>
-                <div class="wins-time-ago">Plinko • 10h atrás</div>
-              </div>
-            </div>
-            <div class="wins-amount">R$ 909</div>
-          </div>
-
-          <div class="wins-item">
-            <div class="wins-user">
-              <div class="wins-user-avatar">69</div>
-              <div class="wins-user-info">
-                <div class="wins-username">Jogador869</div>
-                <div class="wins-time-ago">Blackjack • 5h atrás</div>
-              </div>
-
-
-
-            </div>
-            <div class="wins-amount">R$ 763</div>
-          </div>
-        </div>
+      </div>
     </section>
 
     <!--* ===== FOOTER ===== -->
@@ -598,28 +677,28 @@
           <div>
             <h3>Doe e Ganhe</h3>
             <ul class="footer-list">
-              <li><a href="#">Sobre Nós</a></li>
-              <li><a href="#">Responsabilidade</a></li>
-              <li><a href="#">Trabalhe Conosco</a></li>
-              <li><a href="#">Blog</a></li>
+              <li><a href="about-us.html">Sobre Nós</a></li>
+              <li><a href="about-us.html">Responsabilidade</a></li>
+              <li><a href="about-us.html">Trabalhe Conosco</a></li>
+              <li><a href="about-us.html">Blog</a></li>
             </ul>
           </div>
           <div>
             <h3>Cassino</h3>
             <ul class="footer-list">
-              <li><a href="#">Jogos</a></li>
-              <li><a href="#">Promoções</a></li>
-              <li><a href="#">Torneios</a></li>
-              <li><a href="#">VIP</a></li>
+              <li><a href="casino.html">Jogos</a></li>
+              <li><a href="casino.html">Promoções</a></li>
+              <li><a href="casino.html">Torneios</a></li>
+              <li><a href="casino.html">VIP</a></li>
             </ul>
           </div>
           <div>
             <h3>ONGs</h3>
             <ul class="footer-list">
-              <li><a href="#">Como Funciona</a></li>
-              <li><a href="#">ONGs Parceiras</a></li>
-              <li><a href="#">Relatórios</a></li>
-              <li><a href="#">Seja uma ONG Parceira</a></li>
+              <li><a href="ngos.html">Como Funciona</a></li>
+              <li><a href="ngos.html">ONGs Parceiras</a></li>
+              <li><a href="ngos.html">Relatórios</a></li>
+              <li><a href="ngos.html">Seja uma ONG Parceira</a></li>
             </ul>
           </div>
           <div>

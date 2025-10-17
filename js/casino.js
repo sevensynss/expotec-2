@@ -12,22 +12,58 @@ window.updateBalanceInfo = function() {
 
 // ===== INICIALIZAÇÃO ESPECÍFICA DO CASSINO =====
 document.addEventListener('DOMContentLoaded', () => {
-  // Configura a Sidebar
   const sidebar = document.getElementById('casino-sidebar');
-  if (sidebar) {
-    sidebar.querySelectorAll('.casino-sidebar-menu-item').forEach(header => {
-      const submenu = header.nextElementSibling;
-      if (!submenu || !submenu.classList.contains('casino-sidebar-submenu')) return;
-      const arrow = header.querySelector('svg');
-      const applyState = (open) => {
-        submenu.classList.toggle('casino-hidden', !open);
-        if (arrow) arrow.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
-      };
-      applyState(!submenu.classList.contains('casino-hidden'));
-      header.addEventListener('click', () => applyState(submenu.classList.contains('casino-hidden')));
+  if (!sidebar) return;
+
+  // --- LÓGICA DO SUBMENU (ACORDEÃO) ---
+  const menuHeader = sidebar.querySelector('.casino-sidebar-menu-item');
+  const submenu = sidebar.querySelector('.casino-sidebar-submenu');
+
+  if (menuHeader && submenu) {
+    menuHeader.addEventListener('click', () => {
+      // Adiciona/remove a classe que controla a seta e a abertura
+      menuHeader.classList.toggle('submenu-open');
+      submenu.classList.toggle('submenu-open');
     });
   }
+
+  // --- LÓGICA DE SCROLL SUAVE AO CLICAR NO SUBMENU ---
+  const submenuItems = submenu.querySelectorAll('.casino-sidebar-submenu-item');
+  submenuItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const categoryText = item.querySelector('h3').textContent.trim().toLowerCase();
+      let targetId = '';
+
+      // Mapeia o texto do botão para o ID da seção
+      switch (categoryText) {
+        case 'jogos populares':
+          targetId = 'section-populares';
+          break;
+        case 'cartas':
+          targetId = 'section-cartas';
+          break;
+        case 'cash':
+          targetId = 'section-cash';
+          break;
+        case 'roleta':
+          targetId = 'section-roleta';
+          break;
+        case 'slots':
+          targetId = 'section-slots';
+          break;
+      }
+
+      if (targetId) {
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          // O scroll suave é feito pelo CSS 'scroll-behavior: smooth;'
+          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
 });
+
 
 // ===== FUNÇÕES UTILITÁRIAS PARA JOGOS =====
 
@@ -56,7 +92,9 @@ function selectOngFromOngModal(num) {
   if (typeof window.updateBlackjackOngCard === 'function') {
     window.updateBlackjackOngCard();
   }
-  // Adicione aqui outros jogos se necessário
+  if (typeof window.updateTigerOngCard === 'function') {
+    window.updateTigerOngCard();
+  }
 
   if (ongModal) ongModal.style.display = 'none';
 }

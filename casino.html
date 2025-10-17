@@ -26,6 +26,7 @@
             <div class="nav-links">
               <a class="casino-link-casino" href="casino.html">Cassino</a>
               <a class="link-ngos" href="ngos.html">ONGs</a>
+              <a class="link-about" href="about-us.html">Sobre Nós</a>
             </div>
           </div>
           <div class="nav-container">
@@ -120,9 +121,9 @@
       <h2>Login</h2>
       <form id="form-login">
         <label for="username-login">Usuário</label>
-        <input type="text" id="username-login" name="username" required>
+        <input type="text" id="username-login" name="username" autocomplete="off" required>
         <label for="password-login">Senha</label>
-        <input type="password" id="password-login" name="password" required>
+        <input type="password" id="password-login" name="password" autocomplete="off" required>
 
 
         <button type="submit">Entrar</button>
@@ -143,22 +144,22 @@
       <h2>Registre-se</h2>
       <form id="form-registro">
         <label for="name">Nome completo</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" autocomplete="off" required>
 
         <label for="cpf">CPF</label>
-        <input type="text" id="cpf" name="cpf" required>
+        <input type="text" id="cpf" name="cpf" autocomplete="off"  required>
 
         <label for="birth-date">Data de nascimento</label>
-        <input type="date" name="birth-date" id="birth-date" placeholder="DD/MM/AAAA" required>
+        <input type="date" name="birth-date" id="birth-date" placeholder="DD/MM/AAAA" autocomplete="off" required>
 
         <label for="username-register">Usuário</label>
-        <input type="text" id="username-register" name="username-register" required>
+        <input type="text" id="username-register" name="username-register" autocomplete="off" required>
 
         <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email"  autocomplete="off" required>
 
         <label for="password-register">Senha</label>
-        <input type="password" id="password-register" name="password-register" required>
+        <input type="password" id="password-register" name="password-register" autocomplete="off" required>
 
         <button type="submit">Registrar-se</button>
         <div id="mensagem-registro"></div>
@@ -239,56 +240,139 @@
   <div id="ongModal" class="modal">
     <div class="modal-ong-content">
       <span class="close" onclick="closeOngModal()">&times;</span>
-      <h2>Escolha sua ONG</h2>
-      <p>Selecione a ONG que receberá 2% das suas apostas</p>
-      <div class="ongs-list">
-        <div class="ong-card" data-ong="1" onclick="selectOngFromOngModal(1)">
-          <img src="" alt="Instituto Ayrton Senna">
-          <div class="ong-info">
-            <span class="ong-tag">Educação</span>
-            <h3>Instituto Ayrton Senna</h3>
-            <p>Educação de qualidade para crianças e jovens em situação de vulnerabilidade.</p>
-            <span class="ong-location">São Paulo, SP</span>
-            <span class="ong-supporters">2.847 apoiadores</span>
-            <span class="ong-impact">45.000 crianças atendidas</span>
+            <h2>Escolha sua ONG</h2>
+            <p>Selecione a ONG que receberá 2% das suas apostas</p>
+            <div class="ongs-list">
+              <!-- LISTA COMPLETA DE ONGS (SEM IMAGENS) -->
+              <div class="ong-card" data-ong="1" onclick="selectOngFromOngModal(1)">
+                <div class="ong-info">
+                  <span class="ong-tag" data-category="direitos-humanos">Direitos Humanos</span>
+                  <h3>Criança Esperança</h3>
+                  <p>Campanha nacional em prol dos direitos da criança e do adolescente.</p>
+                </div>
+              </div>
+              <div class="ong-card" data-ong="2" onclick="selectOngFromOngModal(2)">
+                <div class="ong-info">
+                  <span class="ong-tag" data-category="meio-ambiente">Meio Ambiente</span>
+                  <h3>Greenpeace</h3>
+                  <p>Proteção do meio ambiente e campanhas por políticas públicas.</p>
+                </div>
+              </div>
+              <div class="ong-card" data-ong="3" onclick="selectOngFromOngModal(3)">
+                <div class="ong-info">
+                  <span class="ong-tag" data-category="educacao">Educação</span>
+                  <h3>Instituto Ayrton Senna</h3>
+                  <p>Oportunidades de desenvolvimento humano a crianças e jovens pela educação.</p>
+                </div>
+              </div>
+              <div class="ong-card" data-ong="4" onclick="selectOngFromOngModal(4)">
+                <div class="ong-info">
+                  <span class="ong-tag" data-category="educacao">Educação</span>
+                  <h3>Todos Pela Educação</h3>
+                  <p>Mobiliza a sociedade para melhorar a aprendizagem nas escolas públicas.</p>
+                </div>
+              </div>
+              <div class="ong-card" data-ong="5" onclick="selectOngFromOngModal(5)">
+                <div class="ong-info">
+                  <span class="ong-tag" data-category="saude">Saúde</span>
+                  <h3>Fundação do Câncer</h3>
+                  <p>Promove prevenção, pesquisa e apoio a pacientes com câncer no Brasil.</p>
+                </div>
+              </div>
+              <div class="ong-card" data-ong="6" onclick="selectOngFromOngModal(6)">
+                <div class="ong-info">
+                  <span class="ong-tag" data-category="educacao">Educação</span>
+                  <h3>Fundação Abrinq</h3>
+                  <p>Atua com foco no Brasil, defendendo direitos de crianças e adolescentes.</p>
+                </div>
+              </div>
+              <div class="ong-card" data-ong="7" onclick="selectOngFromOngModal(7)">
+                <div class="ong-info">
+                  <span class="ong-tag" data-category="saude">Saúde</span>
+                  <h3>Médicos Sem Fronteiras</h3>
+                  <p>Atuação médica em áreas de conflito, desastre e exclusão social.</p>
+                </div>
+              </div>
+              <div class="ong-card" data-ong="8" onclick="selectOngFromOngModal(8)">
+                <div class="ong-info">
+                  <span class="ong-tag" data-category="causa-animal">Causa Animal</span>
+                  <h3>AMPARA Animal</h3>
+                  <p>Resgate, reabilitação e adoção de animais abandonados.</p>
+                </div>
+              </div>
+              <div class="ong-card" data-ong="9" onclick="selectOngFromOngModal(9)">
+                <div class="ong-info">
+                  <span class="ong-tag" data-category="combate-a-fome">Combate à Fome</span>
+                  <h3>Ação da Cidadania</h3>
+                  <p>Programas de combate à fome e inclusão social.</p>
+                </div>
+              </div>
+              <div class="ong-card" data-ong="10" onclick="selectOngFromOngModal(10)">
+                <div class="ong-info">
+                  <span class="ong-tag" data-category="meio-ambiente">Meio Ambiente</span>
+                  <h3>WWF</h3>
+                  <p>Conservação global da natureza e proteção de espécies.</p>
+                </div>
+              </div>
+              <div class="ong-card" data-ong="11" onclick="selectOngFromOngModal(11)">
+                <div class="ong-info">
+                  <span class="ong-tag" data-category="assistencia-social">Assistência Social</span>
+                  <h3>Instituto Jô Clemente</h3>
+                  <p>Apoio a pessoas com Deficiência Intelectual, Autismo e Doenças Raras.</p>
+                </div>
+              </div>
+              <div class="ong-card" data-ong="12" onclick="selectOngFromOngModal(12)">
+                <div class="ong-info">
+                  <span class="ong-tag" data-category="direitos-humanos">Direitos Humanos</span>
+                  <h3>Anistia Internacional</h3>
+                  <p>Defesa dos direitos humanos e campanhas por justiça e proteção.</p>
+                </div>
+              </div>
+              <div class="ong-card" data-ong="13" onclick="selectOngFromOngModal(13)">
+                <div class="ong-info">
+                  <span class="ong-tag" data-category="educacao">Educação</span>
+                  <h3>Recode</h3>
+                  <p>Capacitação digital e inclusão para jovens em vulnerabilidade.</p>
+                </div>
+              </div>
+              <div class="ong-card" data-ong="14" onclick="selectOngFromOngModal(14)">
+                <div class="ong-info">
+                  <span class="ong-tag" data-category="combate-a-fome">Combate à Fome</span>
+                  <h3>Banco de Alimentos</h3>
+                  <p>Coleta e distribuição de alimentos para instituições sociais.</p>
+                </div>
+              </div>
+              <div class="ong-card" data-ong="15" onclick="selectOngFromOngModal(15)">
+                <div class="ong-info">
+                  <span class="ong-tag" data-category="causa-animal">Causa Animal</span>
+                  <h3>SUIPA</h3>
+                  <p>Resgates, reabilitação e campanhas contra maus-tratos de animais.</p>
+                </div>
+              </div>
+              <div class="ong-card" data-ong="16" onclick="selectOngFromOngModal(16)">
+                <div class="ong-info">
+                  <span class="ong-tag" data-category="combate-a-fome">Combate à Fome</span>
+                  <h3>Mesa Brasil SESC</h3>
+                  <p>Rede nacional de combate à fome e ao desperdício de alimentos.</p>
+                </div>
+              </div>
+              <div class="ong-card" data-ong="17" onclick="selectOngFromOngModal(17)">
+                <div class="ong-info">
+                  <span class="ong-tag" data-category="saude">Saúde</span>
+                  <h3>Instituto Não Me Esqueças</h3>
+                  <p>Atendimento de pacientes com Alzheimer e seus familiares.</p>
+                </div>
+              </div>
+              <div class="ong-card" data-ong="18" onclick="selectOngFromOngModal(18)">
+                <div class="ong-info">
+                  <span class="ong-tag" data-category="assistencia-social">Assistência Social</span>
+                  <h3>Gerando Falcões</h3>
+                  <p>Projetos de impacto social focados em educação e geração de renda.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="ong-card" data-ong="2" onclick="selectOngFromOngModal(2)">
-          <img src="" alt="Ação da Cidadania">
-          <div class="ong-info">
-            <span class="ong-tag">Combate à Fome</span>
-            <h3>Ação da Cidadania</h3>
-            <p>Combate à fome e à pobreza, promovendo inclusão social.</p>
-            <span class="ong-location">Rio de Janeiro, RJ</span>
-            <span class="ong-supporters">1.653 apoiadores</span>
-            <span class="ong-impact">12.000 famílias atendidas</span>
-          </div>
-        </div>
-        <div class="ong-card" data-ong="3" onclick="selectOngFromOngModal(3)">
-          <img src="" alt="WWF Brasil">
-          <div class="ong-info">
-            <span class="ong-tag">Meio Ambiente</span>
-            <h3>WWF Brasil</h3>
-            <p>Conservação da natureza e promoção do uso sustentável.</p>
-            <span class="ong-location">Brasília, DF</span>
-            <span class="ong-supporters">3.921 apoiadores</span>
-            <span class="ong-impact">2.500 hectares protegidos</span>
-          </div>
-        </div>
-        <div class="ong-card" data-ong="4" onclick="selectOngFromOngModal(4)">
-          <img src="" alt="SOS Mata Atlântica">
-          <div class="ong-info">
-            <span class="ong-tag">Meio Ambiente</span>
-            <h3>SOS Mata Atlântica</h3>
-            <p>Proteção e recuperação da Mata Atlântica brasileira.</p>
-            <span class="ong-location">São Paulo, SP</span>
-            <span class="ong-supporters">2.156 apoiadores</span>
-            <span class="ong-impact">2.156 árvores plantadas</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!------CAMPO MINADO------>
   <div id="minesModal" class="modal">
@@ -504,79 +588,194 @@
             <button class="btn-primary" id="aviator-choose-ong-btn" style="margin-bottom:1.2rem;">Escolher
               ONG</button>
             <!-- Card da ONG selecionada -->
-            <div id="selectedOngCardAviator" class="selected-ong-card-aviator"
-              style="margin-bottom:1rem; display:none; background:var(--gray-800);">
-              <span class="ong-tag-aviator" id="selectedOngTagAviator">Escolha sua ONG</span>
-              <h3 class="ong-name-aviator" id="selectedOngNameAviator">Escolha sua ONG</h3>
+            <div id="selectedOngCardAviator" class="selected-ong-card" style="display:none;">
+              <span class="ong-tag" id="selectedOngTagAviator"></span>
+              <h3 id="selectedOngNameAviator"></h3>
             </div>
           </div>
 
-          <!-- Modal de Seleção de ONG (sobreposto, igual à segunda foto) -->
-          <div id="aviatorOngModal" class="modal">
-            <div class="modal-ong-content-aviator">
-              <span class="close" onclick="closeAviatorOngModal()">&times;</span>
-              <h2>Escolha sua ONG</h2>
-              <p>Selecione a ONG que receberá 50% das suas apostas</p>
-              <div class="ongs-list-aviator">
-                <div class="ong-card-aviator" data-ong="1" onclick="selectOngForAviator(1)">
-                  <img src="" alt="Instituto Ayrton Senna">
-                  <div class="ong-info-aviator">
-                    <span class="ong-tag-aviator">Educação</span>
-                    <h3 class="ong-name-aviator">Instituto Ayrton Senna</h3>
-                    <p>Educação de qualidade para crianças e jovens em situação de
-                      vulnerabilidade.</p>
-                    <span class="ong-location-aviator">São Paulo, SP</span>
-                    <span class="ong-supporters-aviator">2.847 apoiadores</span>
-                    <span class="ong-impact-aviator">45.000 crianças atendidas</span>
-                  </div>
-                </div>
-                <div class="ong-card-aviator" data-ong="2" onclick="selectOngForAviator(2)">
-                  <img src="" alt="Ação da Cidadania">
-                  <div class="ong-info-aviator">
-                    <span class="ong-tag-aviator">Combate à Fome</span>
-                    <h3 class="ong-name-aviator">Ação da Cidadania</h3>
-                    <p>Combate à fome e à pobreza, promovendo inclusão social.</p>
-                    <span class="ong-location-aviator">Rio de Janeiro, RJ</span>
-                    <span class="ong-supporters-aviator">1.653 apoiadores</span>
-                    <span class="ong-impact-aviator">12.000 famílias atendidas</span>
-                  </div>
-                </div>
-                <div class="ong-card-aviator" data-ong="3" onclick="selectOngForAviator(3)">
-                  <img src="" alt="WWF Brasil">
-                  <div class="ong-info-aviator">
-                    <span class="ong-tag-aviator">Meio Ambiente</span>
-                    <h3 class="ong-name-aviator">WWF Brasil</h3>
-                    <p>Conservação da natureza e promoção do uso sustentável.</p>
-                    <span class="ong-location-aviator">Brasília, DF</span>
-                    <span class="ong-supporters-aviator">3.921 apoiadores</span>
-                    <span class="ong-impact-aviator">2.500 hectares protegidos</span>
-                  </div>
-                </div>
-                <div class="ong-card-aviator" data-ong="4" onclick="selectOngForAviator(4)">
-                  <img src="" alt="SOS Mata Atlântica">
-                  <div class="ong-info-aviator">
-                    <span class="ong-tag-aviator">Meio Ambiente</span>
-                    <h3 class="ong-name-aviator">SOS Mata Atlântica</h3>
-                    <p>Proteção e recuperação da Mata Atlântica brasileira.</p>
-                    <span class="ong-location-aviator">São Paulo, SP</span>
-                    <span class="ong-supporters-aviator">2.156 apoiadores</span>
-                    <span class="ong-impact-aviator">2.156 árvores plantadas</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                    <!--* === MODAL DE ONGS DO AVIATOR === -->
+                    <div id="aviatorOngModal" class="modal">
+                        <div class="modal-ong-content">
+                            <span class="close" onclick="closeAviatorOngModal()">&times;</span>
+                            <h2>Escolha sua ONG para o Aviator</h2>
+                            <p>Selecione a ONG que receberá 2% das suas apostas neste jogo.</p>
+                            <div class="ongs-list">
+                                <div class="ong-card" data-ong="1" onclick="selectOngForAviator(1)">
+                                    <div class="ong-info">
+                                        <span class="ong-tag">Direitos Humanos</span><h3>Criança Esperança</h3><p>Campanha nacional em prol dos direitos da criança e do adolescente.</p>
+                                    </div>
+                                </div>
+                                <div class="ong-card" data-ong="2" onclick="selectOngForAviator(2)">
+                                    <div class="ong-info">
+                                        <span class="ong-tag">Meio Ambiente</span><h3>Greenpeace</h3><p>Proteção do meio ambiente e campanhas por políticas públicas.</p>
+                                    </div>
+                                </div>
+                                <div class="ong-card" data-ong="3" onclick="selectOngForAviator(3)">
+                                    <div class="ong-info">
+                                        <span class="ong-tag">Educação</span><h3>Instituto Ayrton Senna</h3><p>Oportunidades de desenvolvimento humano a crianças e jovens pela educação.</p>
+                                    </div>
+                                </div>
+                                <div class="ong-card" data-ong="4" onclick="selectOngForAviator(4)">
+                                    <div class="ong-info">
+                                        <span class="ong-tag">Educação</span><h3>Todos Pela Educação</h3><p>Mobiliza a sociedade para melhorar a aprendizagem nas escolas públicas.</p>
+                                    </div>
+                                </div>
+                                <div class="ong-card" data-ong="5" onclick="selectOngForAviator(5)">
+                                    <div class="ong-info">
+                                        <span class="ong-tag">Saúde</span><h3>Fundação do Câncer</h3><p>Promove prevenção, pesquisa e apoio a pacientes com câncer no Brasil.</p>
+                                    </div>
+                                </div>
+                                <div class="ong-card" data-ong="6" onclick="selectOngForAviator(6)">
+                                    <div class="ong-info">
+                                        <span class="ong-tag">Educação</span><h3>Fundação Abrinq</h3><p>Atua com foco no Brasil, defendendo direitos de crianças e adolescentes.</p>
+                                    </div>
+                                </div>
+                                <div class="ong-card" data-ong="7" onclick="selectOngForAviator(7)">
+                                    <div class="ong-info">
+                                        <span class="ong-tag">Saúde</span><h3>Médicos Sem Fronteiras</h3><p>Atuação médica em áreas de conflito, desastre e exclusão social.</p>
+                                    </div>
+                                </div>
+                                <div class="ong-card" data-ong="8" onclick="selectOngForAviator(8)">
+                                    <div class="ong-info">
+                                        <span class="ong-tag">Causa Animal</span><h3>AMPARA Animal</h3><p>Resgate, reabilitação e adoção de animais abandonados.</p>
+                                    </div>
+                                </div>
+                                <div class="ong-card" data-ong="9" onclick="selectOngForAviator(9)">
+                                    <div class="ong-info">
+                                        <span class="ong-tag">Combate à Fome</span><h3>Ação da Cidadania</h3><p>Programas de combate à fome e inclusão social.</p>
+                                    </div>
+                                </div>
+                                <div class="ong-card" data-ong="10" onclick="selectOngForAviator(10)">
+                                    <div class="ong-info">
+                                        <span class="ong-tag">Meio Ambiente</span><h3>WWF</h3><p>Conservação global da natureza e proteção de espécies.</p>
+                                    </div>
+                                </div>
+                                <div class="ong-card" data-ong="11" onclick="selectOngForAviator(11)">
+                                    <div class="ong-info">
+                                        <span class="ong-tag">Assistência Social</span><h3>Instituto Jô Clemente</h3><p>Apoio a pessoas com Deficiência Intelectual, Autismo e Doenças Raras.</p>
+                                    </div>
+                                </div>
+                                <div class="ong-card" data-ong="12" onclick="selectOngForAviator(12)">
+                                    <div class="ong-info">
+                                        <span class="ong-tag">Direitos Humanos</span><h3>Anistia Internacional</h3><p>Defesa dos direitos humanos e campanhas por justiça e proteção.</p>
+                                    </div>
+                                </div>
+                                <div class="ong-card" data-ong="13" onclick="selectOngForAviator(13)">
+                                    <div class="ong-info">
+                                        <span class="ong-tag">Educação</span><h3>Recode</h3><p>Capacitação digital e inclusão para jovens em vulnerabilidade.</p>
+                                    </div>
+                                </div>
+                                <div class="ong-card" data-ong="14" onclick="selectOngForAviator(14)">
+                                    <div class="ong-info">
+                                        <span class="ong-tag">Combate à Fome</span><h3>Banco de Alimentos</h3><p>Coleta e distribuição de alimentos para instituições sociais.</p>
+                                    </div>
+                                </div>
+                                <div class="ong-card" data-ong="15" onclick="selectOngForAviator(15)">
+                                    <div class="ong-info">
+                                        <span class="ong-tag">Causa Animal</span><h3>SUIPA</h3><p>Resgates, reabilitação e campanhas contra maus-tratos de animais.</p>
+                                    </div>
+                                </div>
+                                <div class="ong-card" data-ong="16" onclick="selectOngForAviator(16)">
+                                    <div class="ong-info">
+                                        <span class="ong-tag">Combate à Fome</span><h3>Mesa Brasil SESC</h3><p>Rede nacional de combate à fome e ao desperdício de alimentos.</p>
+                                    </div>
+                                </div>
+                                <div class="ong-card" data-ong="17" onclick="selectOngForAviator(17)">
+                                    <div class="ong-info">
+                                        <span class="ong-tag">Saúde</span><h3>Instituto Não Me Esqueças</h3><p>Atendimento de pacientes com Alzheimer e seus familiares.</p>
+                                    </div>
+                                </div>
+                                <div class="ong-card" data-ong="18" onclick="selectOngForAviator(18)">
+                                    <div class="ong-info">
+                                        <span class="ong-tag">Assistência Social</span><h3>Gerando Falcões</h3><p>Projetos de impacto social focados em educação e geração de renda.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
         </main>
       </div>
     </div>
   </div>
 
 
+
+<!--* === MODAL JOGO DO TIGRINHO  === -->
+<div id="tigerModal" class="modal">
+  <div class="modal-tiger-content">
+    <div class="modal-topbar">
+      <h2>Fortune Tiger</h2>
+      <button class="modal-close-btn" aria-label="Fechar">&#215;</button>
+    </div>
+    <div class="modal-tiger-main">
+      <!-- Coluna Esquerda: Controles -->
+      <div class="tiger-controls-panel">
+        <div style="margin-bottom: 1rem;">
+          <h3 style="color:var(--orange-primary);">Escolha uma ONG para doar 2% das suas apostas</h3>
+          <p style="color:var(--gray-400);font-size:.95rem;margin:0;">
+            Sua escolha faz diferença! Selecione uma ONG para receber parte das suas apostas.
+          </p>
+        </div>
+        <div class="bet-controls-card">
+          <div style="font-weight:600;font-size:1.1rem;color:var(--white);">Controles</div>
+          <div style="margin-bottom:1rem;">
+            <label style="font-size:.95rem;color:var(--white);">Valor da Aposta</label>
+            <div style="display:flex;align-items:center;">
+              <button type="button" id="tiger-bet-minus" class="btn-outline" style="min-width:48px;">-10</button>
+              <input type="number" id="tiger-bet-input" value="50" min="1" style="width:90px;text-align:center;">
+              <button type="button" id="tiger-bet-plus" class="btn-outline" style="min-width:48px;">+10</button>
+            </div>
+          </div>
+          <p style="font-size: .9rem; color: var(--gray-400);">Saldo: R$ <span id="tiger-balance">1000</span></p>
+        </div>
+        <div class="ong-controls-card">
+          <button class="btn-primary" id="chooseOngBtnTiger" style="width:100%">Escolher ONG</button>
+          <div id="selectedOngCardTiger" class="selected-ong-card" style="display:none;">
+            <span class="ong-tag" id="selectedOngTagTiger"></span>
+            <h3 id="selectedOngNameTiger"></h3>
+            <p id="selectedOngDescTiger"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coluna Direita: Jogo -->
+      <div class="tiger-game-area">
+        <div class="tiger-machine">
+          <div class="tiger-machine-header">
+            <img src="img/jogos/doe-e-ganhe-logo.png" alt="Fortune Tiger" class="tiger-decoration">
+          </div>
+          <div class="tiger-machine-body">
+            <div class="tiger-slot">
+              <div class="tiger-reel" id="reel1">🐯</div>
+              <div class="tiger-reel" id="reel2">💰</div>
+              <div class="tiger-reel" id="reel3">🍊</div>
+            </div>
+          </div>
+        </div>
+        <p id="tiger-result" class="tiger-message">Escolha sua ONG e aposte!</p>
+        <button id="tiger-spin-btn" class="btn-primary" disabled>GIRAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--* === MODAL JOGO PLINKO (EM BREVE) === -->
+<div id="plinkoModal" class="modal">
+  <div class="modal-content" style="text-align: center; max-width: 450px;">
+    <span class="close">&times;</span>
+    <h2 style="color: var(--orange-primary); font-size: 1.8rem;">Plinko</h2>
+    <p style="font-size: 1.2rem; margin-top: 1.5rem; color: var(--white);">Em desenvolvimento...</p>
+    <p style="color: var(--gray-400); margin-top: 0.5rem;">Volte em breve para mais novidades!</p>
+  </div>
+</div>
+
   <div class="content">
     <!--* ====== Sidebar menu lateral ====== -->
     <aside class="casino-sidebar" id="casino-sidebar">
       <div class="casino-sidebar-menu">
-        <div class="casino-sidebar-menu-item" onclick="toggleSubmenu()">
+        <div class="casino-sidebar-menu-item">
           <div class="casino-sidebar-menu-item-ranking">
             <img width="26" height="26" src="https://img.icons8.com/ios-filled/50/EBEBEB/cards.png" alt="cards"/>
             <h2>Cassino</h2>
@@ -654,7 +853,7 @@
     <main class="casino-main-content">
       <!--* Seção de jogos -->
       <!--* Jodos Populares -->
-      <section class="casino-game-section">
+      <section class="casino-game-section" id="section-populares">
         <div class="casino-game-title">
           <h2>Jogos Populares</h2>
         </div>
@@ -666,7 +865,7 @@
             <div class="casino-game-thumb">
               <img src="img/jogos/jogos_roleta_roleta.png" alt="Imagem do jogo Roleta">
               <div class="casino-overlay">
-                <button class="btn-primary" id="game-play-roulette" onclick="playRoulette()">Jogar</button>
+                <button class="btn-primary" id="game-play-roulette" >Jogar</button>
               </div>
             </div>
             <div class="casino-meta">
@@ -680,7 +879,7 @@
             <div class="casino-game-thumb">
               <img src="img/jogos/jogos_slots_fortune_tiger.jpeg" alt="Imagem do jogo Fortune Tiger">
               <div class="casino-overlay">
-                <button class="btn-primary" id="game-play-tiger-fortune">Jogar</button>
+              <button class="btn-primary game-play-tiger-fortune">Jogar</button>
               </div>
             </div>
             <div class="casino-meta">
@@ -694,7 +893,7 @@
             <div class="casino-game-thumb">
               <img src="img/jogos/jogos_cartas_blackjack.jpg" alt="Imagem do jogo Blackjack">
               <div class="casino-overlay">
-                <button class="btn-primary" id="game-play-blackjack" onclick="playBlackjack()">Jogar</button>
+                <button class="btn-primary" id="game-play-blackjack" >Jogar</button>
               </div>
             </div>
             <div class="casino-meta">
@@ -722,7 +921,7 @@
             <div class="casino-game-thumb">
               <img src="img/jogos/jogos_cash_mines.png" alt="Imagem do jogo Campo Minado">
               <div class="casino-overlay">
-                <button class="btn-primary" id="game-play-mines" onclick="playMines()">Jogar</button>
+                <button class="btn-primary" id="game-play-mines" >Jogar</button>
               </div>
             </div>
             <div class="casino-meta">
@@ -749,7 +948,7 @@
       </section>
 
       <!--* Jogos Cartas -->
-      <section class="casino-game-section">
+      <section class="casino-game-section" id="section-cartas">
         <div class="casino-game-title">
           <h2>Cartas</h2>
         </div>
@@ -772,7 +971,7 @@
       </section>
 
       <!--* Jogos Cash  -->
-      <section class="casino-game-section">
+      <section class="casino-game-section" id="section-cash">
         <div class="casino-game-title">
           <h2>Cash</h2>
         </div>
@@ -783,7 +982,7 @@
             <div class="casino-game-thumb">
               <img src="img/jogos/jogos_cash_aviator.jpg" alt="Imagem do jogo Aviator">
               <div class="casino-overlay">
-                <button class="btn-primary" id="game-play-aviator" onclick="playAviator()">Jogar</button>
+                <button class="btn-primary" id="game-play-aviator">Jogar</button>
               </div>
             </div>
             <div class="casino-meta">
@@ -824,7 +1023,7 @@
 
 
       <!--* Jogos Roleta  -->
-      <section class="casino-game-section">
+      <section class="casino-game-section" id="section-roleta">
         <div class="casino-game-title">
           <h2>Roleta</h2>
         </div>
@@ -835,7 +1034,7 @@
             <div class="casino-game-thumb">
               <img src="img/jogos/jogos_roleta_roleta.png" alt="Imagem do jogo Roleta">
               <div class="casino-overlay">
-                <button class="btn-primary" id="game-play-roulette" onclick="playRoulette()">Jogar</button>
+                <button class="btn-primary" id="game-play-roulette" >Jogar</button>
               </div>
             </div>
             <div class="casino-meta">
@@ -847,7 +1046,7 @@
       </section>
 
       <!--* Jogos Slots  -->
-      <section class="casino-game-section">
+      <section class="casino-game-section" id="section-slots">
         <div class="casino-game-title">
           <h2>Slots</h2>
         </div>
@@ -858,7 +1057,7 @@
             <div class="casino-game-thumb">
               <img src="img/jogos/jogos_slots_fortune_tiger.jpeg" alt="Imagem do jogo Fortune Tiger">
               <div class="casino-overlay">
-                <button class="btn-primary" id="game-play-tiger-fortune">Jogar</button>
+              <button class="btn-primary game-play-tiger-fortune">Jogar</button>
               </div>
             </div>
             <div class="casino-meta">
@@ -966,4 +1165,5 @@
   <script src="js/mines.js"></script>
   <script src="js/blackjack.js"></script>
   <script src="js/tiger.js"></script>
+  <script src="js/plinko.js"></script>
 </body>
